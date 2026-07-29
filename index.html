@@ -1,0 +1,4643 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karunaconnect | Hipnoterapi Klinis & Neurosains Terintegrasi</title>
+  <link rel="icon" type="image/jpeg" href="./karunaconnect_logo.jpg">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Karunaconnect memadukan welas asih (Karuna) dan sains modern (Connect). Atasi overthinking, kecemasan, dan insomnia melalui hipnoterapi klinis berbasis neurosains.">
+  <meta name="keywords" content="hipnoterapi, neurosains, overthinking, kecemasan, kesehatan mental, karunaconnect, amigdala, default mode network">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ==========================================================================
+       1. DESIGN SYSTEM & VARIABLES
+       ========================================================================== */
+    :root {
+      /* Color Palette (Warm Cream, Champagne Gold, Terracotta, Dark Espresso) */
+      --bg-primary: #FDFBF7;      /* Warm Cream */
+      --container-bg: #E6DFD3;    /* Warm Sand / Champagne Gold */
+      --container-light: #F4F0E6; /* Soft Cream container tint */
+      --accent-cta: #D36B57;      /* Terracotta */
+      --accent-hover: #C05B48;    /* Terracotta Hover */
+      --text-primary: #2E2522;    /* Dark Espresso */
+      --text-muted: #5C4F4A;      /* Medium Espresso */
+      --text-light: #8A7A75;      /* Light Espresso */
+      --white: #FFFFFF;
+      --card-shadow: 0 20px 40px rgba(46, 37, 34, 0.05);
+      --glass-shadow: 0 8px 32px 0 rgba(46, 37, 34, 0.04);
+      --border-light: rgba(46, 37, 34, 0.06);
+      --border-accent: rgba(213, 107, 87, 0.15);
+      
+      /* Transitions */
+      --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: all 0.25s ease;
+    }
+
+    /* ==========================================================================
+       2. BASE STYLES & TYPOGRAPHY
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text-primary);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition-fast);
+    }
+
+    button, .btn {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Decorative Background Glowing Blobs */
+    .bg-blur-blob {
+      position: fixed;
+      width: 45vw;
+      height: 45vw;
+      border-radius: 50%;
+      filter: blur(160px);
+      z-index: -1;
+      opacity: 0.16;
+      pointer-events: none;
+      transition: var(--transition-smooth);
+    }
+    .blob-1 {
+      top: -10%;
+      right: -10%;
+      background: radial-gradient(circle, var(--accent-cta) 0%, rgba(211, 107, 87, 0) 70%);
+    }
+    .blob-2 {
+      bottom: -10%;
+      left: -10%;
+      background: radial-gradient(circle, #5cb89b 0%, rgba(92, 184, 155, 0) 70%);
+    }
+
+    /* Common layout helpers */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .badge {
+      background-color: var(--container-light);
+      color: var(--text-primary);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--border-light);
+      display: inline-block;
+      margin-bottom: 24px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR (SLIDING ACCENTS)
+       ========================================================================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(253, 251, 247, 0.8);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border-light);
+      transition: var(--transition-fast);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.55rem;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .logo-dot {
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent-cta);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(211, 107, 87, 0.5);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: relative;
+      padding: 8px 4px;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 2.5px;
+      background-color: var(--accent-cta);
+      transition: var(--transition-smooth);
+      transform: translateX(-50%);
+      border-radius: 4px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a.active {
+      color: var(--text-primary);
+      font-weight: 800;
+    }
+
+    .nav-links a.active::after {
+      width: 16px;
+    }
+
+    .nav-btn {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      border-radius: 50px;
+    }
+
+    .nav-btn:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(211, 107, 87, 0.25);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--text-primary);
+      transition: var(--transition-fast);
+    }
+
+    /* Reading progress bar for editorial page */
+    .reading-progress-container {
+      position: fixed;
+      top: 84px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: rgba(46, 37, 34, 0.03);
+      z-index: 999;
+      display: none;
+    }
+
+    .reading-progress-bar {
+      height: 100%;
+      width: 0%;
+      background-color: var(--accent-cta);
+      transition: width 0.1s ease;
+    }
+
+    /* ==========================================================================
+       4. PAGE VIEW WORKSPACE (TABBED ROUTING & SPECIFIC OVERRIDES)
+       ========================================================================== */
+    .page-view {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+      flex-grow: 1;
+      padding-top: 130px; /* Offset for header */
+      padding-bottom: 80px;
+    }
+
+    #view-home.page-view.active {
+      display: block;
+    }
+
+    #view-assessment.page-view.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #view-learning.page-view.active {
+      display: block;
+    }
+
+    #view-gallery.page-view.active {
+      display: block;
+    }
+
+    #view-bot.page-view.active {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 30px;
+      height: calc(100vh - 160px); 
+      padding-top: 0px;            
+      padding-bottom: 0px;
+      margin-top: 110px;           
+      margin-bottom: 30px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    #view-booking.page-view.active {
+      display: block;
+    }
+
+    .page-view.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       TAB: BERANDA (HOME)
+       ========================================================================== */
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .hero-content {
+      padding-right: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, var(--accent-cta) 35%, var(--text-primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      margin-bottom: 40px;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      padding: 18px 40px;
+      font-size: 1rem;
+      box-shadow: 0 10px 28px rgba(211, 107, 87, 0.22);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(211, 107, 87, 0.3);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border-light);
+      padding: 16px 38px;
+      font-size: 1rem;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-primary);
+      background-color: rgba(46, 37, 34, 0.02);
+      transform: translateY(-2px);
+    }
+
+    /* Quick stats grid */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 36px;
+    }
+
+    .stat-item {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      padding: 16px 20px;
+      border-radius: 20px;
+      box-shadow: var(--glass-shadow);
+      text-align: center;
+      transition: var(--transition-fast);
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-accent);
+    }
+
+    .stat-item h4 {
+      font-size: 1.45rem;
+      color: var(--accent-cta);
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 600;
+    }
+
+    /* Brainwave Lab Widget (Hero Right) */
+    .hero-visual {
+      background: var(--container-light);
+      border: 1px solid var(--container-bg);
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .visual-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 15px;
+    }
+
+    .visual-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .visual-title svg {
+      color: var(--accent-cta);
+    }
+
+    .brain-status-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: var(--transition-fast);
+    }
+
+    .status-beta {
+      background-color: rgba(211, 107, 87, 0.12);
+      color: var(--accent-cta);
+      border: 1px solid rgba(211, 107, 87, 0.15);
+    }
+
+    .status-alpha {
+      background-color: rgba(92, 184, 155, 0.12);
+      color: #3b876d;
+      border: 1px solid rgba(92, 184, 155, 0.15);
+    }
+
+    .ibh-hero-logo-only {
+      align-self: flex-end;
+      margin-bottom: 5px;
+      margin-top: -15px;
+    }
+
+    .ibh-hero-logo-only img {
+      width: 75px;
+      height: 75px;
+      object-fit: contain;
+    }
+
+    .canvas-container {
+      width: 100%;
+      height: 180px;
+      background: var(--white);
+      border-radius: 18px;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Breathing Guide Aura Overlay */
+    .breathing-guide-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 10;
+      display: none; 
+    }
+
+    .breathing-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(92, 184, 155, 0.18);
+      border: 2px solid #5cb89b;
+      box-shadow: 0 0 25px rgba(92, 184, 155, 0.5);
+      transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1), background-color 4s ease;
+    }
+
+    .breathing-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #3b876d;
+      margin-top: 10px;
+      text-shadow: 0 2px 8px rgba(253, 251, 247, 0.95);
+      letter-spacing: 0.05em;
+    }
+
+    .wave-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .control-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-light);
+    }
+
+    .toggle-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--container-bg);
+      padding: 4px;
+      border-radius: 16px;
+    }
+
+    .toggle-btn {
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .toggle-btn.active {
+      background: var(--white);
+      color: var(--text-primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .visual-description {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      min-height: 48px;
+      transition: var(--transition-fast);
+    }
+
+    .design-asset-link {
+      font-size: 0.85rem;
+      color: var(--accent-cta);
+      text-decoration: underline;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 5px;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       TAB: SELF-ASSESSMENT
+       ========================================================================== */
+    .section-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
+      margin-bottom: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .quiz-card {
+      background-color: var(--white);
+      border-radius: 32px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--card-shadow);
+      padding: 50px;
+      max-width: 820px;
+      width: 100%;
+      margin: 0 auto;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .quiz-progress-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 36px;
+      gap: 16px;
+    }
+
+    .progress-bar-bg {
+      flex-grow: 1;
+      height: 6px;
+      background-color: var(--container-bg);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 20%;
+      background-color: var(--accent-cta);
+      border-radius: 4px;
+      transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .progress-text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    .question-wrapper {
+      transition: opacity 0.3s ease;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .question-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    /* Polished Card Selection */
+    .option-button {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      padding: 18px 24px;
+      border-radius: 20px;
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    .option-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--text-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: var(--transition-fast);
+    }
+
+    .option-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex-grow: 1;
+    }
+
+    .option-info strong {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .option-info span {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .option-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      background-color: var(--container-light);
+      padding: 4px 12px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+      transition: var(--transition-fast);
+    }
+
+    .option-button:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent-cta);
+      box-shadow: 0 8px 24px rgba(211, 107, 87, 0.06);
+    }
+
+    .option-button:hover .option-circle {
+      border-color: var(--accent-cta);
+    }
+
+    .option-button.selected {
+      border-color: var(--accent-cta);
+      background-color: rgba(211, 107, 87, 0.04);
+      box-shadow: 0 8px 24px rgba(211, 107, 87, 0.08);
+    }
+
+    .option-button.selected .option-circle {
+      border-color: var(--accent-cta);
+      background-color: var(--accent-cta);
+    }
+
+    .option-button.selected .option-circle::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: var(--white);
+      border-radius: 50%;
+    }
+
+    .option-button.selected .option-badge {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      border-color: var(--accent-cta);
+    }
+
+    .quiz-navigation {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-light);
+      padding-top: 24px;
+    }
+
+    .btn-nav-prev {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+      padding: 12px 28px;
+      font-size: 0.95rem;
+    }
+
+    .btn-nav-prev:hover:not(:disabled) {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+
+    .btn-nav-prev:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Results Interface */
+    .results-wrapper {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .result-gauge-box {
+      margin-bottom: 24px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .gauge-svg {
+      width: 150px;
+      height: 150px;
+      transform: rotate(-90deg);
+    }
+
+    .gauge-track {
+      fill: none;
+      stroke: var(--container-bg);
+      stroke-width: 10;
+    }
+
+    .gauge-fill {
+      fill: none;
+      stroke: var(--accent-cta);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 433.5; 
+      stroke-dashoffset: 433.5;
+      transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gauge-value {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .gauge-value span {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    .result-category {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .result-description {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 24px auto;
+      line-height: 1.6;
+    }
+
+    .disclaimer-card {
+      background-color: var(--container-light);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 16px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: left;
+      margin: 20px auto 30px auto;
+      max-width: 620px;
+      line-height: 1.5;
+    }
+
+    .disclaimer-card strong {
+      color: var(--text-primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ==========================================================================
+       TAB: PUSAT EDUKASI (EDITORIAL ARTICLE & TWO-COLUMN GRID)
+       ========================================================================== */
+    .learning-view {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .learning-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 50px;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .learning-sidebar {
+      position: sticky;
+      top: 110px;
+    }
+
+    .sidebar-sticky-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--glass-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .sidebar-sticky-card h4 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 10px;
+    }
+
+    .sidebar-sticky-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-sticky-card a {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition-fast);
+      display: inline-block;
+    }
+
+    .sidebar-sticky-card a:hover,
+    .sidebar-sticky-card a.active {
+      color: var(--accent-cta);
+      transform: translateX(4px);
+    }
+
+    .reading-stats {
+      border-top: 1px solid var(--border-light);
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+
+    .learning-article-body {
+      max-width: 800px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .article-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .article-meta-divider {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--container-bg);
+    }
+
+    .article-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 30px;
+      color: var(--text-primary);
+    }
+
+    /* Comparative Brain Widget */
+    .brain-compare-widget {
+      background: var(--container-light);
+      border: 1px solid var(--container-bg);
+      border-radius: 24px;
+      padding: 28px;
+      margin: 40px 0;
+    }
+
+    .compare-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .compare-header h4 {
+      font-size: 1.15rem;
+      color: var(--text-primary);
+    }
+
+    .compare-header p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .compare-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .compare-tab-btn {
+      padding: 12px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid var(--border-light);
+      background: var(--white);
+      transition: var(--transition-fast);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .compare-tab-btn.active {
+      background: var(--accent-cta);
+      color: var(--white);
+      border-color: var(--accent-cta);
+      box-shadow: 0 4px 15px rgba(211, 107, 87, 0.15);
+    }
+
+    .compare-view {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .compare-brain-graphic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .brain-svg {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+    }
+
+    .brain-node {
+      transition: var(--transition-smooth);
+    }
+
+    .glow-red {
+      fill: #e85a4f;
+      filter: drop-shadow(0 0 6px rgba(232, 90, 79, 0.8));
+    }
+    
+    .glow-green {
+      fill: #5cb89b;
+      filter: drop-shadow(0 0 6px rgba(92, 184, 155, 0.8));
+    }
+
+    .brain-path-active {
+      stroke: #e85a4f;
+      stroke-width: 2;
+      stroke-dasharray: 4;
+      animation: dash 1.5s linear infinite;
+    }
+
+    .brain-path-calm {
+      stroke: #5cb89b;
+      stroke-width: 1.5;
+    }
+
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -20;
+      }
+    }
+
+    .compare-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .bullet-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .bullet-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border-light);
+    }
+
+    .bullet-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Editorial Text Content */
+    .article-content {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    .article-content p {
+      margin-bottom: 28px;
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+    }
+
+    .article-content h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      margin: 44px 0 20px 0;
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+    }
+
+    .article-content ul {
+      margin-bottom: 28px;
+      padding-left: 20px;
+    }
+
+    .article-content li {
+      margin-bottom: 12px;
+      font-family: 'Lora', serif;
+    }
+
+    .article-content strong {
+      color: var(--text-primary);
+      font-family: 'Lora', serif;
+    }
+
+    .article-quote {
+      border-left: 3px solid var(--accent-cta);
+      padding-left: 24px;
+      margin: 40px 0;
+      font-style: italic;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 1.25rem;
+    }
+
+    .article-conclusion {
+      background-color: var(--container-light);
+      border-radius: 24px;
+      padding: 30px;
+      margin-top: 50px;
+      border: 1px solid var(--container-bg);
+    }
+
+    .article-conclusion h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .article-conclusion p {
+      margin-bottom: 0;
+      font-size: 1.02rem;
+    }
+
+    /* ==========================================================================
+       TAB: GALERI (NEW SECTION)
+       ========================================================================== */
+    #view-gallery.page-view.active {
+      display: block;
+    }
+
+    .gallery-card {
+      background-color: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow);
+      border-color: var(--border-accent);
+    }
+
+    .gallery-media-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      background-color: var(--container-light);
+      overflow: hidden;
+    }
+
+    .gallery-media-container img,
+    .gallery-media-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+
+    .gallery-card:hover .gallery-media-container img {
+      transform: scale(1.05);
+    }
+
+    .gallery-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 10;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--white);
+      background-color: var(--accent-cta);
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .badge-video {
+      background-color: #2E2522; /* Dark Espresso for videos */
+    }
+
+    .badge-youtube {
+      background-color: #d32f2f; /* Red for YouTube videos */
+    }
+
+    .gallery-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+    }
+
+    .gallery-info h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .gallery-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .gallery-delete-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background-color: #d9534f;
+      color: var(--white);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      z-index: 100;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border: none;
+      transition: var(--transition-fast);
+    }
+
+    .gallery-delete-btn:hover {
+      background-color: #c9302c;
+      transform: scale(1.1);
+    }
+
+    /* ==========================================================================
+       SUPERADMIN FLOATING TOOLBAR
+       ========================================================================== */
+    .admin-toolbar {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(150px);
+      background: rgba(46, 37, 34, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 24px;
+      border-radius: 20px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      z-index: 3000;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      transition: var(--transition-smooth);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .admin-toolbar.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .admin-toolbar-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-cta);
+    }
+
+    .admin-toolbar-btn-save {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      padding: 8px 18px;
+      font-size: 0.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+
+    .admin-toolbar-btn-save:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .admin-toolbar-btn-exit {
+      background-color: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 7px 16px;
+      font-size: 0.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+
+    .admin-toolbar-btn-exit:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-color: var(--white);
+    }
+
+    /* Outline highlight for editable admin elements */
+    .admin-editable.editing {
+      outline: 2px dashed var(--accent-cta) !important;
+      outline-offset: 4px;
+      cursor: text;
+      background-color: rgba(211, 107, 87, 0.02);
+      border-radius: 4px;
+    }
+
+    /* ==========================================================================
+       TAB: KARUNA BOT (FULL-PAGE WORKSPACE PANELS & TERMINALS)
+       ========================================================================== */
+    /* Left pane: Library & Definitions */
+    .bot-library {
+      background-color: var(--container-light);
+      border: 1px solid var(--container-bg);
+      border-radius: 24px;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: 100%; /* Take full height of grid cell */
+    }
+
+    .library-header h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .library-header p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .lib-card {
+      background-color: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 16px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: var(--transition-fast);
+    }
+
+    .lib-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--card-shadow);
+      border-color: var(--border-accent);
+    }
+
+    .lib-card h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .lib-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .btn-ask-lib {
+      background-color: var(--container-light);
+      color: var(--text-primary);
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      border-radius: 8px;
+      align-self: flex-start;
+      border: 1px solid var(--container-bg);
+    }
+
+    .btn-ask-lib:hover {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      border-color: var(--accent-cta);
+    }
+
+    /* Right pane: Chat Terminal (Flex Columns with locked Zones) */
+    .bot-terminal {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* Take full height of grid cell */
+      overflow: hidden;
+    }
+
+    .chat-terminal-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border-light);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      height: 72px; /* Fixed Header Height */
+      flex-shrink: 0;
+    }
+
+    .bot-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: var(--container-bg);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      font-weight: 700;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .online-indicator {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      background-color: #5cb89b;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+    }
+
+    .bot-status {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .bot-status h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .bot-status p {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 2px;
+      line-height: 1.2;
+    }
+
+    .chat-messages {
+      flex-grow: 1;
+      padding: 24px;
+      overflow-y: auto; /* Dedicated scrolling zone */
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: var(--bg-primary);
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 14px 18px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      animation: messageSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    @keyframes messageSlideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-bot {
+      background-color: var(--white);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+      align-self: flex-start;
+      border-radius: 20px 20px 20px 4px;
+    }
+
+    .message-user {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      align-self: flex-end;
+      border-radius: 20px 20px 4px 20px;
+      box-shadow: 0 4px 12px rgba(211, 107, 87, 0.12);
+    }
+
+    .message-bot strong {
+      color: var(--text-primary);
+    }
+
+    /* Typing indicators */
+    .typing-indicator {
+      display: none;
+      align-self: flex-start;
+      background-color: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      border-top-left-radius: 4px;
+      padding: 14px 18px;
+    }
+
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      height: 10px;
+    }
+
+    .typing-dots span {
+      width: 6px;
+      height: 6px;
+      background-color: var(--text-light);
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out both;
+    }
+
+    .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: scale(0); }
+      40% { transform: scale(1.0); }
+    }
+
+    .quick-replies {
+      padding: 12px 24px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border-light);
+      white-space: nowrap;
+      height: 54px; /* Fixed Height */
+      flex-shrink: 0;
+    }
+
+    .quick-replies::-webkit-scrollbar {
+      display: none;
+    }
+    .quick-replies {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .reply-pill {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .reply-pill:hover {
+      border-color: var(--accent-cta);
+      color: var(--accent-cta);
+      background-color: rgba(211, 107, 87, 0.02);
+    }
+
+    .chat-terminal-footer {
+      padding: 16px 24px;
+      background: var(--white);
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      gap: 12px;
+      height: 80px; /* Fixed Footer Height */
+      flex-shrink: 0;
+      align-items: center;
+    }
+
+    .chat-input-wrapper {
+      flex-grow: 1;
+    }
+
+    .chat-input {
+      width: 100%;
+      border: 1px solid var(--border-light);
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      outline: none;
+      background-color: var(--bg-primary);
+      transition: var(--transition-fast);
+    }
+
+    .chat-input:focus {
+      border-color: var(--accent-cta);
+      background-color: var(--white);
+    }
+
+    .btn-send {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn-send:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-send svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* ==========================================================================
+       TAB: KONSULTASI SEKARANG (SCHEDULER & BOOKING)
+       ========================================================================== */
+    .booking-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+
+    .booking-info h2 {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .booking-info p {
+      margin-bottom: 30px;
+    }
+
+    .clinician-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      align-items: flex-start;
+    }
+
+    .clinician-avatar {
+      width: 110px;
+      height: 140px;
+      border-radius: 16px;
+      background: var(--container-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 3px solid var(--border-light);
+    }
+
+    .clinician-details h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.4;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .clinician-details h4::after {
+      content: '✓';
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #3b876d;
+      color: var(--white);
+      font-size: 0.65rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clinician-details p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .clinician-details span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: block;
+      line-height: 1.45;
+    }
+
+    .clinician-badges-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .clinician-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background-color: rgba(92, 184, 155, 0.1);
+      color: #3b876d;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .clinician-price-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background-color: rgba(211, 107, 87, 0.1);
+      color: var(--accent-cta);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .accreditations-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+      margin-top: 10px;
+    }
+
+    .accred-item {
+      display: flex;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .accred-icon {
+      color: var(--accent-cta);
+    }
+
+    .legalities-section {
+      background: var(--container-bg);
+      border: 1px dashed var(--border-light);
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
+
+    .legalities-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .legalities-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 576px) {
+      .legalities-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .legal-badge {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      padding: 10px 12px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .legal-badge-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .legal-badge-logo {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .legal-badge-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .legal-badge-content strong {
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .legal-badge-content span {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    .certificates-list-small {
+      margin-top: 14px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 10px;
+    }
+
+    .cert-small-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .certificates-list-small ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .certificates-list-small li {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    @media (max-width: 576px) {
+      .certificates-list-small li {
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+
+    /* Booking Form Container & Calendar Grid */
+    .booking-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .form-group-double {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-control label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .form-input {
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      outline: none;
+      background-color: var(--bg-primary);
+      transition: var(--transition-fast);
+      color: var(--text-primary);
+      font-family: inherit;
+    }
+
+    .form-input:focus {
+      border-color: var(--accent-cta);
+      background-color: var(--white);
+    }
+
+    /* Calendar Grid Widget */
+    .calendar-container {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .calendar-header {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      text-align: center;
+    }
+
+    .calendar-day-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--text-light);
+      padding-bottom: 4px;
+    }
+
+    .calendar-date {
+      padding: 8px 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      border: 1px solid transparent;
+    }
+
+    .calendar-date.available {
+      background-color: var(--white);
+      border-color: var(--border-light);
+    }
+
+    .calendar-date.available:hover {
+      background-color: var(--container-bg);
+      border-color: var(--text-light);
+    }
+
+    .calendar-date.selected {
+      background-color: var(--accent-cta) !important;
+      color: var(--white) !important;
+      border-color: var(--accent-cta) !important;
+    }
+
+    .calendar-date.disabled {
+      color: var(--accent-cta);
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn-submit {
+      background-color: var(--accent-cta);
+      color: var(--white);
+      padding: 16px;
+      font-size: 1rem;
+      margin-top: 10px;
+      justify-content: center;
+      box-shadow: 0 6px 15px rgba(211, 107, 87, 0.2);
+    }
+
+    .btn-submit:hover {
+      background-color: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(211, 107, 87, 0.3);
+    }
+
+    /* Floating Toast Notification Popup Style definitions */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #3b876d; /* Calm green matching alpha theme */
+      color: var(--white);
+      padding: 16px 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      display: none;
+      align-items: center;
+      gap: 12px;
+      z-index: 4000; 
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+      opacity: 0;
+      max-width: 90%;
+    }
+
+    .toast.show {
+      display: flex;
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Persistent Float Button (Reroutes to Bot Tab view) */
+    .chatbot-float-trigger {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--accent-cta);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(211, 107, 87, 0.4);
+      cursor: pointer;
+      z-index: 999;
+      transition: var(--transition-smooth);
+      font-size: 1.5rem;
+    }
+
+    .chatbot-float-trigger:hover {
+      transform: scale(1.08) rotate(6deg);
+      background-color: var(--accent-hover);
+    }
+
+    /* ==========================================================================
+       9. FOOTER
+       ========================================================================== */
+    footer {
+      background-color: var(--text-primary);
+      color: var(--container-bg);
+      padding: 60px 24px 40px 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto 40px auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand p {
+      color: var(--container-bg);
+      opacity: 0.65;
+      font-size: 0.88rem;
+      max-width: 320px;
+    }
+
+    .footer-links h4 {
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.88rem;
+      color: var(--container-bg);
+      opacity: 0.65;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--accent-cta);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.8rem;
+      opacity: 0.6;
+    }
+
+    /* ==========================================================================
+       10. RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================================================== */
+    @media (max-width: 991px) {
+      #view-bot.page-view.active {
+        grid-template-columns: 1fr;
+        height: auto;
+        margin-top: 90px;
+      }
+
+      .bot-library {
+        height: 320px;
+      }
+
+      .bot-terminal {
+        height: 520px;
+      }
+
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+      }
+
+      .hero-desc {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-ctas {
+        justify-content: center;
+      }
+
+      .stats-row {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .booking-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .booking-info {
+        text-align: center;
+      }
+
+      .clinician-card {
+        max-width: 550px;
+        margin: 0 auto 20px auto;
+        text-align: left;
+      }
+
+      @media (max-width: 576px) {
+        .clinician-card {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 20px;
+        }
+        .clinician-avatar {
+          margin-bottom: 10px;
+        }
+        .clinician-details h4 {
+          justify-content: center;
+        }
+        .clinician-badges-wrapper {
+          justify-content: center;
+        }
+      }
+
+      .accreditations-list {
+        align-items: center;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hamburger {
+        display: flex;
+      }
+
+      .page-view {
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .quiz-card {
+        padding: 24px;
+      }
+
+      .option-button {
+        padding: 16px 20px;
+        font-size: 0.92rem;
+      }
+
+      .article-title {
+        font-size: 1.9rem;
+      }
+
+      .compare-view {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .compare-brain-graphic {
+        order: -1;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Decorative Glowing Blobs -->
+  <div class="bg-blur-blob blob-1"></div>
+  <div class="bg-blur-blob blob-2"></div>
+
+  <!-- ==========================================================================
+       HEADER / NAVBAR (MATCHING REFERENCE PATTERN)
+       ========================================================================== -->
+  <header>
+    <div class="nav-container">
+      <a class="logo-container" id="brandLogo">
+        <img src="./karunaconnect_logo.jpg" alt="Logo" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--border-light);">
+        Karunaconnect
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Beranda</a></li>
+        <li><a href="#assessment">Self-Assessment</a></li>
+        <li><a href="#learning">Pusat Edukasi</a></li>
+        <li><a href="#gallery">Galeri</a></li>
+        <li><a href="#bot">Karuna Bot</a></li>
+        <li><a href="#booking" class="btn nav-btn">Konsultasi Sekarang</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerMenu" aria-label="Menu navigasi">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    
+    <!-- Editorial Reading Progress Bar -->
+    <div class="reading-progress-container" id="readingBarContainer">
+      <div class="reading-progress-bar" id="readingBar"></div>
+    </div>
+  </header>
+
+  <!-- Floating Admin Toolbar -->
+  <div class="admin-toolbar" id="adminToolbar">
+    <span class="admin-toolbar-title">🔓 MODE SUPERADMIN AKTIF</span>
+    <span>Klik teks apa saja untuk mengedit.</span>
+    <button class="btn admin-toolbar-btn-save" onclick="saveAdminChanges()">Simpan Perubahan</button>
+    <button class="btn admin-toolbar-btn-exit" onclick="toggleAdminMode()">Keluar Mode Admin</button>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN VIEW CHANGER CONTAINER
+       ========================================================================== */ -->
+  <main class="container" style="display:flex; flex-grow:1; flex-direction:column; padding:0 24px;">
+    
+    <!-- ==========================================================================
+         TAB VIEW: BERANDA (HOME)
+         ========================================================================== -->
+    <section id="view-home" class="page-view active show">
+      <div class="hero-split">
+        <div class="hero-content">
+          <span class="badge admin-editable" data-admin-key="hero-badge">Hipnoterapi Berbasis Neurosains</span>
+          <h1 class="hero-title admin-editable" data-admin-key="hero-title">
+            Sains & Welas Asih:<br>
+            <span>Memprogram Pikiran,</span> Menemukan Damai Nyata.
+          </h1>
+          <p class="hero-desc admin-editable" data-admin-key="hero-desc">
+            Melangkah keluar dari lingkaran kecemasan dan overthinking menggunakan hipnoterapi klinis modern. Pendekatan berbasis sains yang kredibel, hangat, dan bebas dari stigma mistis.
+          </p>
+          
+          <div class="hero-ctas">
+            <a href="#assessment" class="btn btn-primary">Mulai Self-Assessment</a>
+            <a href="#learning" class="btn btn-secondary">Pelajari Neurosains</a>
+          </div>
+          
+          <div class="stats-row">
+            <div class="stat-item">
+              <h4 class="admin-editable" data-admin-key="stat-1-val">100%</h4>
+              <p class="admin-editable" data-admin-key="stat-1-desc">Ilmiah & Medis</p>
+            </div>
+            <div class="stat-item">
+              <h4 class="admin-editable" data-admin-key="stat-2-val">Alpha/Theta</h4>
+              <p class="admin-editable" data-admin-key="stat-2-desc">State Gelombang Otak</p>
+            </div>
+            <div class="stat-item">
+              <h4 class="admin-editable" data-admin-key="stat-3-val">Karuna</h4>
+              <p class="admin-editable" data-admin-key="stat-3-desc">Pendekatan Welas Asih</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <div class="ibh-hero-logo-only">
+            <img src="ibh_logo.png" alt="IBH Logo">
+          </div>
+          <div class="visual-header">
+            <span class="visual-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Gelombang Otak Anda (Brainwaves)
+            </span>
+            <span class="brain-status-badge status-beta" id="brainStatus">Overthinking (Beta)</span>
+          </div>
+          
+          <div class="canvas-container">
+            <canvas id="brainwaveCanvas"></canvas>
+            
+            <!-- Interactive Breathing Aura Overlay -->
+            <div class="breathing-guide-overlay" id="breathingGuide">
+              <div class="breathing-circle" id="breathingCircle"></div>
+              <span class="breathing-label" id="breathingLabel">Tarik Napas...</span>
+            </div>
+          </div>
+          
+          <div class="wave-controls">
+            <span class="control-label">Ubah Status Kesadaran</span>
+            <div class="toggle-bar">
+              <button class="toggle-btn active" id="btnBeta" onclick="setBrainState('beta')">Mode Beta (Sibuk)</button>
+              <button class="toggle-btn" id="btnAlpha" onclick="setBrainState('alpha')">Mode Alpha/Theta (Rileks)</button>
+            </div>
+            <p class="visual-description" id="brainDescription">
+              <strong>Kondisi Beta (12-30 Hz)</strong>: Default Mode Network (DMN) aktif, memicu pikiran berputar tanpa arah, amigdala bersiap menghadapi stres, otot menegang, dan napas dangkal.
+            </p>
+            <a href="file:///C:/Users/new/.gemini/antigravity/brain/f2fdbb45-bb63-4d23-b575-13a18421c6cd/karunaconnect_ui_1785244876732.jpg" target="_blank" class="design-asset-link">
+              🖼️ Lihat Konsep Desain Visual Hero
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB VIEW: SELF-ASSESSMENT
+         ========================================================================== -->
+    <section id="view-assessment" class="page-view assessment-view">
+      <div class="section-header">
+        <span class="badge admin-editable" data-admin-key="assessment-badge">Alat Skrining Mandiri</span>
+        <h2 class="admin-editable" data-admin-key="assessment-title">Skrining Awal: Mengukur Tingkat Kecemasan Anda</h2>
+        <p class="admin-editable" data-admin-key="assessment-desc">Pilihlah jawaban yang paling menggambarkan kondisi Anda dalam 2 minggu terakhir. Hasil skrining awal ini akan dihitung secara instan berdasarkan indikator medis otonom.</p>
+      </div>
+
+      <div class="quiz-card">
+        <!-- Progress bar container -->
+        <div class="quiz-progress-container" id="quizProgressContainer">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBar"></div>
+          </div>
+          <span class="progress-text" id="progressText">1 dari 5</span>
+        </div>
+
+        <!-- Question content -->
+        <div id="quizContent">
+          <div class="question-wrapper" id="questionWrapper">
+            <h3 class="question-title" id="questionTitle">Loading Pertanyaan...</h3>
+            <div class="options-grid">
+              <button class="option-button" onclick="selectOption(0)">
+                <span class="option-circle"></span>
+                <div class="option-info">
+                  <strong>Tidak Pernah</strong>
+                  <span>Sama sekali tidak merasakan gejala tersebut dalam 2 minggu terakhir.</span>
+                </div>
+                <span class="option-badge">0 Poin</span>
+              </button>
+              <button class="option-button" onclick="selectOption(1)">
+                <span class="option-circle"></span>
+                <div class="option-info">
+                  <strong>Jarang / Beberapa Hari</strong>
+                  <span>Hanya terjadi sesekali pada hari-hari tertentu saja.</span>
+                </div>
+                <span class="option-badge">1 Poin</span>
+              </button>
+              <button class="option-button" onclick="selectOption(2)">
+                <span class="option-circle"></span>
+                <div class="option-info">
+                  <strong>Sering / Lebih dari Seminggu</strong>
+                  <span>Hampir terjadi secara berulang selama rentang waktu satu minggu.</span>
+                </div>
+                <span class="option-badge">2 Poin</span>
+              </button>
+              <button class="option-button" onclick="selectOption(3)">
+                <span class="option-circle"></span>
+                <div class="option-info">
+                  <strong>Hampir Setiap Hari</strong>
+                  <span>Terjadi secara konstan dan mengganggu produktivitas harian Anda.</span>
+                </div>
+                <span class="option-badge">3 Poin</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-navigation">
+            <button class="btn btn-nav-prev" id="btnPrev" onclick="prevQuestion()" disabled>Kembali</button>
+          </div>
+        </div>
+
+        <!-- Results window -->
+        <div class="results-wrapper" id="resultsWrapper">
+          <div class="result-gauge-box">
+            <svg class="gauge-svg">
+              <circle class="gauge-track" cx="75" cy="75" r="69"></circle>
+              <circle class="gauge-fill" id="gaugeFill" cx="75" cy="75" r="69"></circle>
+            </svg>
+            <div class="gauge-value" id="gaugeVal">
+              0
+              <span>Skor Anda</span>
+            </div>
+          </div>
+
+          <h3 class="result-category" id="resultCategory">Tingkat Kecemasan Sedang</h3>
+          <p class="result-description" id="resultDescription">
+            Lorem ipsum dolor sit amet.
+          </p>
+
+          <div class="disclaimer-card">
+            <strong>⚠️ Penafian Penting (Disclaimer)</strong>
+            <span id="resultDisclaimer">Ingat, hasil ini adalah skrining awal untuk membantu Anda mengenali diri, bukan sebuah diagnosis medis resmi.</span>
+          </div>
+
+          <div class="result-actions">
+            <!-- Dynamic Actions inserted by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB VIEW: PUSAT EDUKASI (EDITORIAL GRID)
+         ========================================================================== -->
+    <section id="view-learning" class="page-view learning-view">
+      <div class="learning-grid">
+        
+        <!-- Sticky Outline Sidebar -->
+        <aside class="learning-sidebar">
+          <div class="sidebar-sticky-card">
+            <h4>Daftar Isi</h4>
+            <ul>
+              <li><a href="#view-learning" class="active">1. Pengantar</a></li>
+              <li><a href="#article-sub-1">2. Sisi Neuroscience</a></li>
+              <li><a href="#article-sub-2">3. Hipnoterapi Klinis</a></li>
+            </ul>
+            <div class="reading-stats">
+              <span>⏱️ 5 Menit Baca</span>
+              <span>📖 650 Kata</span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main article space -->
+        <div class="learning-article-body">
+          <div class="article-meta">
+            <span>Oleh: Karunaconnect Editorial</span>
+            <span class="article-meta-divider"></span>
+            <span>Ditinjau oleh Psikolog & Neuroscientist</span>
+            <span class="article-meta-divider"></span>
+            <span>5 Menit Membaca</span>
+          </div>
+          
+          <h2 class="article-title admin-editable" data-admin-key="article-title">Mengapa Kita Overthinking? Sudut Pandang Neuroscience dan Solusinya Melalui Hipnoterapi</h2>
+          
+          <div class="article-content">
+            <p>
+              Pernahkah Anda berbaring di tempat tidur, siap untuk tidur, namun pikiran Anda justru berputar tanpa kendali? Memikirkan kesalahan masa lalu, mencemaskan masa depan, atau menganalisis skenario buruk yang belum tentu terjadi. Di Karunaconnect, kami memahami bahwa overthinking (berpikir berlebihan) bukan sekadar "terlalu banyak berpikir", melainkan sebuah kondisi melelahkan yang menyerap energi emosional Anda. Mari kita bedah apa yang sebenarnya terjadi di dalam otak Anda saat mode ini aktif.
+            </p>
+
+            <!-- Interactive Brain Graphic Widget -->
+            <div class="brain-compare-widget">
+              <div class="compare-header">
+                <h4>Visualisasi Sirkuit Otak Manusia</h4>
+                <p>Klik tombol di bawah untuk melihat perbedaan respons DMN dan Amigdala saat aktif vs ditenangkan</p>
+              </div>
+              
+              <div class="compare-tabs">
+                <button class="compare-tab-btn active" id="tabCompareBeta" onclick="toggleBrainCompare('beta')">Saat Overthinking (DMN Hiperaktif)</button>
+                <button class="compare-tab-btn" id="tabCompareAlpha" onclick="toggleBrainCompare('alpha')">Saat Hipnoterapi (Gelombang Lambat)</button>
+              </div>
+              
+              <div class="compare-view">
+                <div class="compare-brain-graphic">
+                  <svg class="brain-svg" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Simplified Head Profile -->
+                    <path d="M20 100 C20 40, 60 20, 100 20 C140 20, 180 40, 180 100 C180 120, 160 140, 140 150 L140 160 C140 165, 130 170, 120 170 C100 170, 100 160, 90 160 C80 160, 80 170, 60 170 C50 170, 40 165, 40 160 L40 150 C20 140, 20 120, 20 100 Z" fill="#FDFBF7" stroke="#E6DFD3" stroke-width="1.5" />
+                    <!-- Brain Silhouette -->
+                    <path d="M45 95 C45 55, 70 35, 100 35 C130 35, 155 55, 155 95 C155 110, 145 125, 130 135 C115 140, 85 140, 70 135 C55 125, 45 110, 45 95 Z" fill="none" stroke="#E6DFD3" stroke-width="1.5" stroke-dasharray="4 2" />
+                    
+                    <!-- DMN Connection Line -->
+                    <path id="brainDmnPath" d="M60 70 Q100 50 140 70 Q100 90 60 70" fill="none" stroke="#e85a4f" stroke-width="2" class="brain-path-active" />
+                    
+                    <!-- Amygdala Node -->
+                    <circle id="brainAmygdala" cx="100" cy="100" r="10" class="brain-node glow-red" />
+                    <text x="100" y="125" text-anchor="middle" font-size="8" font-family="Outfit" fill="var(--text-muted)" font-weight="600">Amigdala</text>
+                    
+                    <!-- Prefrontal Cortex Node -->
+                    <circle id="brainPfc" cx="60" cy="70" r="7" class="brain-node glow-red" />
+                    <text x="52" y="55" text-anchor="middle" font-size="8" font-family="Outfit" fill="var(--text-muted)" font-weight="600">Prefrontal</text>
+                    
+                    <!-- PCC Node -->
+                    <circle id="brainPcc" cx="140" cy="70" r="7" class="brain-node glow-red" />
+                    <text x="145" y="55" text-anchor="middle" font-size="8" font-family="Outfit" fill="var(--text-muted)" font-weight="600">Posterior</text>
+                  </svg>
+                </div>
+                
+                <div class="compare-bullets" id="compareBullets">
+                  <div class="bullet-item">
+                    <span class="bullet-icon">🚨</span>
+                    <div class="bullet-text">
+                      <strong>Amigdala Hiperaktif:</strong> Mengalami alarm stres konstan. Amigdala salah mendeteksi ketakutan abstrak sebagai ancaman hidup-mati.
+                    </div>
+                  </div>
+                  <div class="bullet-item">
+                    <span class="bullet-icon">🔄</span>
+                    <div class="bullet-text">
+                      <strong>Default Mode Network (DMN) Sibuk:</strong> Jaringan melamun berjalan tanpa henti, memicu pemutaran berulang kegagalan masa lalu atau masa depan.
+                    </div>
+                  </div>
+                  <div class="bullet-item">
+                    <span class="bullet-icon">⚡</span>
+                    <div class="bullet-text">
+                      <strong>Gelombang Beta Tinggi:</strong> Otak beroperasi dalam frekuensi panik yang cepat, memicu ketegangan fisik di tubuh.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="admin-editable" id="article-sub-1" data-admin-key="article-sub-1">Sisi Neuroscience: Apa yang Terjadi di Otak Anda?</h3>
+            <p>
+              Secara ilmiah, otak kita memiliki jaringan saraf yang disebut <strong>Default Mode Network (DMN)</strong>. Jaringan ini aktif saat kita sedang melamun, tidak fokus pada tugas tertentu, atau saat memikirkan diri sendiri. Pada kondisi normal, DMN membantu kita merefleksikan diri secara konstruif.
+            </p>
+            <p>
+              Namun, pada seorang overthinker, DMN ini bekerja terlalu aktif (*hyperactive*). Otak terjebak dalam putaran umpan balik (*feedback loop*) yang konstan. Ditambah lagi, pusat emosi dan rasa takut kita, yaitu <strong>Amigdala</strong>, mengirimkan sinyal bahaya palsu ke tubuh. Akibatnya, meskipun Anda hanya duduk diam di kamar, tubuh Anda merasakan stres fisik seperti jantung berdetak lebih cepat atau otot menegang, seolah-olah Anda sedang menghadapi ancaman nyata.
+            </p>
+
+            <h3 class="admin-editable" id="article-sub-2" data-admin-key="article-sub-2">Bagaimana Hipnoterapi Klinis Membantu Anda?</h3>
+            <p>
+              Banyak orang mengira hipnoterapi adalah tentang kehilangan kendali atas diri. Faktanya, dalam hipnoterapi berbasis ilmiah yang kami terapkan, yang terjadi adalah sebaliknya: <strong>Anda mengambil alih kendali penuh pikiran Anda sendiri.</strong>
+            </p>
+            
+            <p>
+              <strong>1. Menurunkan Gelombang Otak:</strong><br>
+              Saat overthinking, otak berada pada gelombang Beta tinggi yang penuh kecemasan. Hipnoterapi membantu menuntun otak Anda masuk ke gelombang Alpha dan Theta yang dalam dan rileks. Pada kondisi ini, aktivitas berlebih pada DMN dan Amigdala akan ditenangkan secara bertahap dan teratur.
+            </p>
+            
+            <p>
+              <strong>2. Memprogram Ulang Pikiran Bawah Sadar:</strong><br>
+              Overthinking sering kali berakar dari keyakinan keliru (*limiting beliefs*) di pikiran bawah sadar, seperti rasa takut gagal, kecemasan penolakan, atau sisa trauma masa lalu. Melalui kondisi relaksasi hipnotik (trance), terapis menanamkan sugesti positif yang logis untuk melatih ulang cara otak Anda merespons pemicu stres otonom.
+            </p>
+
+            <div class="article-conclusion">
+              <h4>Welas Asih Berbasis Bukti</h4>
+              <p>
+                Memahami neurobiologi overthinking membebaskan kita dari rasa bersalah. Kondisi Anda adalah sirkuit otak yang lelah dan reaktif, bukan cacat kepribadian. Bersama bimbingan hipnoterapi berbasis klinis, Anda bisa melatih kembali sistem saraf otonom Anda untuk kembali ke zona damai dan regulasi emosi yang stabil.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB VIEW: GALERI (NEW)
+         ========================================================================== -->
+    <section id="view-gallery" class="page-view">
+      <div class="section-header">
+        <span class="badge admin-editable" data-admin-key="gallery-badge">Galeri Media</span>
+        <h2 class="admin-editable" data-admin-key="gallery-title">Ruang Visual & Video Karunaconnect</h2>
+        <p class="admin-editable" data-admin-key="gallery-desc">Jelajahi visualisasi terapi, dokumentasi klinik, serta panduan meditasi audio-visual berbasis sains kami.</p>
+      </div>
+
+      <!-- Admin Upload Panel (Hidden by default, visible in Admin Mode) -->
+      <div class="admin-only-section" id="adminUploadPanel" style="display: none; max-width: 800px; margin: 0 auto 40px auto;">
+        <div class="booking-card" style="border: 2px dashed var(--accent-cta); background: rgba(211, 107, 87, 0.02);">
+          <h3 style="margin-bottom: 20px; color: var(--accent-cta); display: flex; align-items: center; gap: 8px; font-size: 1.2rem;">
+            📁 Panel Unggah Media Superadmin
+          </h3>
+          <form id="adminUploadForm" onsubmit="handleAdminUpload(event)" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-control">
+              <label for="uploadTitle">Judul Media</label>
+              <input type="text" id="uploadTitle" class="form-input" placeholder="Masukkan judul..." required>
+            </div>
+            <div class="form-control">
+              <label for="uploadType">Tipe Media</label>
+              <select id="uploadType" class="form-input" onchange="toggleUploadInputType()" required>
+                <option value="image">Gambar (Image)</option>
+                <option value="video">Video</option>
+                <option value="youtube">Video YouTube (URL)</option>
+              </select>
+            </div>
+            <div class="form-control" style="grid-column: span 2;" id="uploadFileGroup">
+              <label for="uploadFile" id="uploadFileLabel">Pilih File Gambar</label>
+              <input type="file" id="uploadFile" class="form-input" accept="image/*" required>
+              <small id="uploadFileHelp" style="color: var(--text-light); margin-top: 4px; font-size: 0.75rem;">Maksimum ukuran file: 2.5 MB untuk penyimpanan lokal browser.</small>
+            </div>
+            <div class="form-control" style="grid-column: span 2; display: none;" id="uploadUrlGroup">
+              <label for="uploadUrl">URL Video YouTube</label>
+              <input type="url" id="uploadUrl" class="form-input" placeholder="Contoh: https://www.youtube.com/watch?v=...">
+            </div>
+            <div class="form-control" style="grid-column: span 2;">
+              <label for="uploadCaption">Keterangan Singkat / Deskripsi</label>
+              <textarea id="uploadCaption" class="form-input" placeholder="Tulis deskripsi media..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit" style="grid-column: span 2; margin-top: 10px;">Unggah & Simpan ke Galeri</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px;">
+        <!-- Media items will be generated dynamically -->
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB VIEW: KARUNA BOT
+         ========================================================================== -->
+    <section id="view-bot" class="page-view bot-view">
+      <!-- Left pane: documentation library -->
+      <div class="bot-library">
+        <div class="library-header">
+          <h3>Pusat Data Neurosains</h3>
+          <p>Klik tombol 'Tanyakan' di kartu manapun untuk memuat topik langsung ke chat konsol.</p>
+        </div>
+        
+        <div class="lib-card">
+          <h4>Default Mode Network (DMN)</h4>
+          <p>Jaringan sirkuit otak yang aktif saat kita melamun dan menganalisis masa lalu atau masa depan. Overthinking dipicu oleh DMN yang hiperaktif.</p>
+          <button class="btn btn-ask-lib" onclick="sendQuickReply('Jelaskan DMN di otak')">Tanyakan Topik</button>
+        </div>
+
+        <div class="lib-card">
+          <h4>Amigdala & Stress</h4>
+          <p>Bagian otak berbentuk almond yang mengatur alarm stres otonom. Merangsang refleks fight-or-flight secara fisik saat Anda cemas berlebih.</p>
+          <button class="btn btn-ask-lib" onclick="sendQuickReply('Mengapa amigdala memicu cemas?')">Tanyakan Topik</button>
+        </div>
+
+        <div class="lib-card">
+          <h4>Mitos Hipnoterapi</h4>
+          <p>Hipnoterapi klinis didukung fMRI medis. Terapis tidak mengontrol pikiran Anda; Anda tetap sadar 100% dan memegang kendali penuh.</p>
+          <button class="btn btn-ask-lib" onclick="sendQuickReply('Apakah hipnoterapi mistis atau aman?')">Tanyakan Mitos</button>
+        </div>
+
+        <div class="lib-card">
+          <h4>Gelombang Alpha & Theta</h4>
+          <p>State gelombang lambat yang dituju dalam hipnosis klinis untuk menenangkan sistem saraf otonom dan mempermudah pemrograman ulang.</p>
+          <button class="btn btn-ask-lib" onclick="sendQuickReply('Jelaskan Gelombang Alpha & Theta')">Tanyakan Topik</button>
+        </div>
+      </div>
+
+      <!-- Right pane: Chat Terminal -->
+      <div class="bot-terminal">
+        <div class="chat-terminal-header">
+          <div class="bot-avatar">
+            K
+            <span class="online-indicator"></span>
+          </div>
+          <div class="bot-status">
+            <h3>Karuna Bot</h3>
+            <p>Aktif • Pendamping Edukasi Sains & Welas Asih</p>
+          </div>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+          <!-- Welcome message rendered dynamically via JS typewriting simulation -->
+          <div class="typing-indicator" id="typingIndicator" style="display: block;">
+            <div class="typing-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-replies" id="chatQuickReplies">
+          <!-- Dynamic Quick replies inserted by JS -->
+        </div>
+
+        <div class="chat-terminal-footer">
+          <div class="chat-input-wrapper">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Ketik pertanyaan Anda di sini..." onkeypress="handleChatEnter(event)">
+          </div>
+          <button class="btn btn-send" onclick="sendUserMessage()" aria-label="Kirim Pesan">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TAB VIEW: KONSULTASI SEKARANG
+         ========================================================================== -->
+    <section id="view-booking" class="page-view">
+      <div class="booking-split">
+        <div class="booking-info">
+          <span class="badge admin-editable" data-admin-key="booking-badge">Layanan Klinis</span>
+          <h2 class="admin-editable" data-admin-key="booking-title">Jadwalkan Sesi Konsultasi Anda</h2>
+          <p class="admin-editable" data-admin-key="booking-desc">Mulailah perjalanan Anda menuju pikiran yang lebih tenang bersama terapis profesional manusia kami di Karunaconnect. Setiap sesi diformulasikan berdasarkan prinsip psikologi klinis dan pendekatan neurosains yang aman.</p>
+          
+          <div class="clinician-card">
+            <div class="clinician-avatar">
+              <img src="eduardo_saratoga.jpg" alt="Eduardo Saratoga Wrahatnala" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="clinician-details">
+              <h4 class="admin-editable" data-admin-key="booking-clinician-name">Eduardo Saratoga Wrahatnala, S.Psi., M.NCB., M.HP., C.MH., C.Ht., C.HTc., C.EH., C.AHRP., C.Mt., C.ELM., C.I., C.NLP., C.MS</h4>
+              <p class="admin-editable" data-admin-key="booking-clinician-title">Hipnoterapis Medis</p>
+              <span class="admin-editable" data-admin-key="booking-clinician-desc">Sarjana Psikologi (S.Psi) & Hipnoterapis Klinis Profesional. Bersertifikat resmi Clinical Hypnotherapist, Erickson Hypnotherapist, NLP Practitioner, dan Trainer Hipnosis Medis. Pengalaman klinis 8+ tahun.</span>
+              <div class="clinician-badges-wrapper">
+                <span class="clinician-badge">Tersedia Sesi Online & Offline</span>
+                <span class="clinician-price-badge">💰 Rp 450.000 / Sesi (60 Menit)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="legalities-section">
+            <h5 class="legalities-title">Legalitas & Sertifikasi Resmi</h5>
+            <div class="legalities-grid">
+              <div class="legal-badge">
+                <img src="ibh_logo.png" alt="IBH Logo" class="legal-badge-logo">
+                <div class="legal-badge-content">
+                  <strong>Registered CHt (IBH)</strong>
+                  <span>Indonesian Board of Hypnotherapy - Reg. 40688</span>
+                </div>
+              </div>
+              <div class="legal-badge">
+                <img src="ibh_logo.png" alt="IBH Logo" class="legal-badge-logo">
+                <div class="legal-badge-content">
+                  <strong>Professional Hypnotherapy</strong>
+                  <span>Certified by IBH - Reg. PH. 00570</span>
+                </div>
+              </div>
+              <div class="legal-badge">
+                <span class="legal-badge-icon">🇮🇩</span>
+                <div class="legal-badge-content">
+                  <strong>Sertifikasi BNSP RI</strong>
+                  <span>Lisensi Sertifikasi Profesi - Reg. M 2177 02125 2025</span>
+                </div>
+              </div>
+              <div class="legal-badge">
+                <span class="legal-badge-icon">🏫</span>
+                <div class="legal-badge-content">
+                  <strong>Kemendikbud RI</strong>
+                  <span>LKP Ruang Cerdas Indonesia - NPSN K9999344</span>
+                </div>
+              </div>
+              <div class="legal-badge">
+                <span class="legal-badge-icon">🏛️</span>
+                <div class="legal-badge-content">
+                  <strong>Kemenkumham RI</strong>
+                  <span>Keputusan Menkumham - AHU-054666.AH.01.30</span>
+                </div>
+              </div>
+              <div class="legal-badge">
+                <span class="legal-badge-icon">🌐</span>
+                <div class="legal-badge-content">
+                  <strong>Kominfo RI (PSE)</strong>
+                  <span>Sistem Elektronik Terdaftar - NPSE 015065.01</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="certificates-list-small">
+              <div class="cert-small-title">Nomor Sertifikat Kompetensi:</div>
+              <ul>
+                <li><strong>Professional Hypnotherapy (IBH):</strong> <span>No. PH. 00570 (Terbit 20 Des 2025)</span></li>
+                <li><strong>Sertifikat Kompetensi BNSP (SDM):</strong> <span>No. Reg. M 2177 02125 2025 (Terbit 02 Sep 2025)</span></li>
+                <li><strong>Certified Hypnotherapist (CHt):</strong> <span>IBH Reg. 40688 (Berlaku s/d 08/25)</span></li>
+                <li><strong>Certified of Master Hypnotist (C.MH):</strong> <span>No. 005/RCI/CMH/VIII/2024</span></li>
+                <li><strong>Certified Hypno Teaching (C.HTc):</strong> <span>No. 023/HTc/XI/2024</span></li>
+                <li><strong>Certified Motivational Speakers (C.MS):</strong> <span>No. 001/CMS/IV/2025</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="booking-card">
+          <form class="booking-form" id="bookingForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group-double">
+              <div class="form-control">
+                <label for="bookingName">Nama Lengkap</label>
+                <input type="text" id="bookingName" class="form-input" placeholder="Nama Anda" required>
+              </div>
+              <div class="form-control">
+                <label for="bookingEmail">Email</label>
+                <input type="email" id="bookingEmail" class="form-input" placeholder="nama@email.com" required>
+              </div>
+            </div>
+            
+            <div class="form-group-double">
+              <div class="form-control">
+                <label for="bookingPhone">No. WhatsApp (Aktif)</label>
+                <input type="tel" id="bookingPhone" class="form-input" placeholder="0812xxxx" required>
+              </div>
+              <div class="form-control">
+                <label for="bookingIssue">Keluhan Utama</label>
+                <select id="bookingIssue" class="form-input" required>
+                  <option value="" disabled selected>Pilih keluhan utama</option>
+                  <option value="Overthinking">Overthinking berlebih</option>
+                  <option value="Kecemasan">Kecemasan Umum / Panic Attack</option>
+                  <option value="Insomnia">Kesusahan Tidur (Insomnia)</option>
+                  <option value="Prokrastinasi">Menunda Pekerjaan (Prokrastinasi)</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Calendar grid widget -->
+            <div class="form-control">
+              <label>Pilih Tanggal Konsultasi (Tersedia Juli-Agustus 2026)</label>
+              <input type="hidden" id="bookingDateInput" required>
+              <div class="calendar-container">
+                <div class="calendar-header" id="calendarHeader">Juli 2026</div>
+                <div class="calendar-grid" id="calendarGrid">
+                  <!-- Mon-Sun labels -->
+                  <div class="calendar-day-label">S</div>
+                  <div class="calendar-day-label">S</div>
+                  <div class="calendar-day-label">R</div>
+                  <div class="calendar-day-label">K</div>
+                  <div class="calendar-day-label">J</div>
+                  <div class="calendar-day-label" style="color: var(--accent-cta)">S</div>
+                  <div class="calendar-day-label" style="color: var(--accent-cta)">M</div>
+                  
+                  <!-- Dates generated dynamically by JS -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label for="bookingNotes">Catatan Tambahan (Opsional)</label>
+              <textarea id="bookingNotes" class="form-input" placeholder="Tuliskan keluhan singkat Anda atau waktu luang spesifik lainnya..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-submit">Ajukan Jadwal Konsultasi</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification Popup -->
+  <div class="toast" id="toastBox">
+    <span class="toast-success-icon">✓</span>
+    <span id="toastMessage">Pendaftaran konsultasi berhasil dikirim! Terapis kami akan segera menghubungi Anda melalui WhatsApp.</span>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3 style="display: flex; align-items: center; gap: 10px;"><img src="./karunaconnect_logo.jpg" alt="Logo" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.15);"> Karunaconnect</h3>
+        <p>Integrasi harmonis antara welas asih spiritual (Karuna) dan sains neurobiologi (Connect) untuk memulihkan kesehatan mental Anda secara nyata.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#assessment">Self-Assessment</a></li>
+          <li><a href="#learning">Pusat Edukasi</a></li>
+          <li><a href="#gallery">Galeri</a></li>
+          <li><a href="#bot">Karuna Bot</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="mailto:info@karunaconnect.com">📧 info@karunaconnect.com</a></li>
+          <li><a href="tel:02182919238">📞 (021) 829-192-38</a></li>
+          <li><a href="#">📍 Jakarta Selatan, Indonesia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Karunaconnect. Seluruh hak cipta dilindungi.</p>
+      <p>Bebas dari mitos, didukung oleh sains.</p>
+    </div>
+  </footer>
+
+  <!-- Persistent Float Button (Reroutes to Bot Tab view) -->
+  <div class="chatbot-float-trigger" onclick="triggerFloatChat()" aria-label="Buka Karuna Bot">
+    💬
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    /* ==========================================================================
+       GLOBAL STATE & CONFIGURATIONS (DECLARED FIRST TO PREVENT REFERENCE ERRORS)
+       ========================================================================== */
+    let activeTab = 'home';
+    let isAdminMode = false;
+    let chatContext = 'initial';
+    let selectedDateStr = "";
+    let breathingCycleActive = false;
+    let breathingTimeout;
+
+    // Safe Hash Navigation Utility to prevent file:// protocol security warnings inside iframes
+    function updateHashSafe(hash) {
+      try {
+        window.location.hash = hash;
+      } catch (e) {
+        console.warn("URL Hash update bypassed due to origin policies:", e);
+      }
+    }
+
+    // Self-Assessment Questions Array
+    const questions = [
+      "[Fisik] Apakah Anda merasakan ketegangan otot (bahu kaku, rahang mengatup keras) atau detak jantung tiba-tiba berpacu cepat tanpa alasan fisik yang jelas?",
+      "[Kognitif] Apakah pikiran Anda terasa terus berputar dan sulit untuk dihentikan, terutama saat Anda sedang mencoba untuk beristirahat?",
+      "[Perilaku] Seberapa sering Anda menunda pekerjaan (prokrastinasi) hanya karena merasa cemas hasilnya tidak akan sempurna?",
+      "[Tidur] Apakah Anda mengalami kesulitan untuk mulai tidur atau sering terbangun di malam hari karena memikirkan kekhawatiran Anda?",
+      "[Emosi] Apakah Anda merasa menjadi lebih mudah tersinggung, frustrasi, atau sulit mengontrol emosi terhadap hal-hal kecil?"
+    ];
+    
+    let currentQuestionIndex = 0;
+    let userScores = Array(questions.length).fill(null);
+
+    // Default Gallery Items
+    const defaultGalleryItems = [
+      {
+        id: 1,
+        title: "Simulasi Sesi Meditasi Relaksasi Alpha",
+        type: "video",
+        caption: "Bimbingan pernapasan otonom teratur guna menurunkan denyut jantung dan menggeser gelombang otak ke area ketenangan Alpha.",
+        mediaUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+        date: "28 Jul 2026"
+      },
+      {
+        id: 2,
+        title: "Infografis Sirkuit Amigdala Otak",
+        type: "image",
+        caption: "Pemetaan klinis penjinakan respon fight-or-flight berlebih pada penderita gangguan cemas kronis menggunakan trance hipnosis klinis.",
+        mediaUrl: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='340' viewBox='0 0 600 340'><rect width='100%' height='100%' fill='%23F4F0E6'/><circle cx='300' cy='170' r='85' fill='%23D36B57' opacity='0.15'/><circle cx='300' cy='170' r='55' fill='%23D36B57' opacity='0.4'/><circle cx='300' cy='170' r='25' fill='%23D36B57'/><text x='50%25' y='80%25' dominant-baseline='middle' text-anchor='middle' font-family='Outfit' font-size='22' fill='%232E2522' font-weight='700'>Sirkuit Amigdala (Fight or Flight)</text></svg>",
+        date: "28 Jul 2026"
+      },
+      {
+        id: 3,
+        title: "Metode Grounding Fisik 5-4-3-2-1",
+        type: "image",
+        caption: "Panduan infografis lima tahap indrawi instan guna meregulasi kecemasan akut akibat serangan panik (Panic Attack) mendadak.",
+        mediaUrl: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='340' viewBox='0 0 600 340'><rect width='100%' height='100%' fill='%23E6DFD3'/><text x='50%25' y='42%25' dominant-baseline='middle' text-anchor='middle' font-family='Outfit' font-size='42' fill='%232E2522' font-weight='800'>5 - 4 - 3 - 2 - 1</text><text x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter' font-size='16' fill='%235C4F4A' font-weight='600'>Metode Grounding Indrawi Otonom</text></svg>",
+        date: "28 Jul 2026"
+      },
+      {
+        id: 4,
+        title: "Sains Medis Hipnoterapi (fMRI Scan)",
+        type: "youtube",
+        caption: "Bongkar fakta medis fMRI bagaimana proses hipnosis klinis menurunkan overthinking dengan menenangkan Default Mode Network (DMN).",
+        mediaUrl: "https://www.youtube.com/watch?v=co0B40G29B8",
+        date: "29 Jul 2026"
+      },
+      {
+        id: 5,
+        title: "Terapi Musik Gelombang Alpha/Theta Binaural Beats",
+        type: "youtube",
+        caption: "Audio visual meditasi klinis 5 menit untuk membantu penyesuaian otonom detak jantung dan meredakan kepanikan secara terstruktur.",
+        mediaUrl: "https://www.youtube.com/watch?v=tEmt1Ds9XSs",
+        date: "29 Jul 2026"
+      }
+    ];
+
+    let galleryItems = [];
+
+    // Brainwave Canvas Configurations
+    const canvas = document.getElementById('brainwaveCanvas');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    let canvasWidth = 0;
+    let canvasHeight = 0;
+    let waveState = 'beta'; 
+    let transitionProgress = 0;
+
+    // Chatbot configuration objects
+    const botMessages = {
+      greeting: "Halo, selamat datang di Karunaconnect. 🤍<br><br>Saya Karuna Bot, asisten AI yang siap menemani Anda memahami pikiran dan emosi dari sudut pandang psikologi dan neuroscience. Di sini, Anda berada di ruang yang aman, rahasia, dan bebas dari penghakiman.<br><br>Ada yang bisa saya bantu hari ini? Anda bisa memilih opsi di bawah atau langsung mengetik apa yang sedang Anda rasakan.",
+      curhatIntro: "Terima kasih sudah memilih curhat. Silakan ketik keluhan Anda di bawah ini, atau ceritakan kecemasan Anda secara bebas. Saya siap mendengarkan dengan empati dan memberikan sudut pandang sains.",
+      curhatCemas: "Terima kasih sudah mau berbagi cerita dengan saya. Merasa cemas karena tekanan pekerjaan adalah hal yang sangat valid dan melelahkan.<br><br>Secara sains, ketika beban kerja menumpuk, otak bagian Amigdala (pusat alarm bahaya) Anda sedang bekerja terlalu aktif. Ini membuat tubuh Anda ikut siaga, seperti jantung berdebar atau sulit fokus.<br><br>Untuk membantu Anda hari ini, mana yang paling menggambarkan kondisi Anda saat ini?",
+      insomnia: "Kondisi sulit tidur (insomnia) adalah efek langsung dari gelombang Beta otak yang terlalu tinggi yang mencegah masuknya gelombang Alpha/Theta yang menenangkan. Hipnoterapi klinis membantu mereduksi gelombang Beta ini secara bertahap.<br><br>Apakah Anda ingin membaca artikel ilmiah lebih lanjut atau ingin coba konsultasi?",
+      prokrastinasi: "Prokrastinasi atau menunda pekerjaan sering kali merupakan mekanisme pertahanan emosional alami amigdala Anda untuk menghindari kegagalan. Lewat pemrograman ulang bawah sadar di hipnoterapi, Anda bisa meredam kecemasan perfeksionisme tersebut.<br><br>Apakah Anda ingin mencoba asesmen kecemasan awal kami atau langsung konsultasi?",
+      caraMenenangkan: "Untuk menenangkan amigdala yang aktif secara otonom, Anda bisa memulainya dengan mempraktikkan teknik pernapasan dalam (abdominal breathing) secara perlahan, membatasi paparan layar gawai (digital detox), serta membaca artikel ilmiah kami untuk mendidik rasionalitas pikiran Anda. Apakah Anda tertarik membaca artikel lengkapnya?",
+      hypnoGaib: "Pertanyaan yang bagus sekali! Di Karunaconnect, kami meluruskan bahwa hipnoterapi adalah 100% sains medis, bukan ilmu gaib atau mistis.<br><br>Saat dihipnoterapi, Anda tidak kehilangan kendali atau tertidur. Otak Anda hanya dibimbing masuk ke gelombang Alpha/Theta (kondisi sangat rileks dan fokus mendalam). Di kondisi inilah pikiran bawah sadar Anda bisa dilatih ulang untuk meredakan kecemasan atau trauma masa lalu.<br><br>Apakah Anda ingin tahu cara kerja ilmiahnya lebih lanjut?",
+      hypnoArtikel: "Bagus sekali Anda tertarik pada sains di belakangnya! Kami merekomendasikan Anda membaca artikel utama kami di Pusat Edukasi untuk membedah data dan fMRI, atau klik tombol di bawah untuk membacanya langsung.",
+      tesKesehatan: "Tentu! Saya akan langsung membimbing Anda ke lembar tes Self-Assessment kami. Silakan jawab 5 pertanyaan singkat di sana secara jujur untuk mendapatkan analisis tingkat kecemasan Anda.",
+      terapisBooking: "Tentu! Anda bisa menjadwalkan sesi konsultasi dengan terapis profesional manusia di Karunaconnect dengan mengisi formulir booking kami di tab Konsultasi Sekarang.",
+      crisis: "Saya mendengar Anda, dan saya sangat peduli dengan keselamatan Anda. Namun, sebagai AI, saya memiliki batasan dan tidak bisa memberikan diagnosis medis atau menangani kondisi darurat.<br><br>Anda tidak harus menghadapi beban ini sendirian. Saya sangat menyarankan Anda untuk segera berbicara dengan profesional (Psikolog/Terapis) kami yang dapat memberikan penanganan manusia yang utuh dan aman.",
+      dmnExplanation: "<strong>Default Mode Network (DMN)</strong> adalah jaringan saraf di otak yang aktif ketika Anda sedang tidak berfokus pada tugas tertentu (seperti melamun, merenung, atau memikirkan masa lalu/masa depan). Pada kondisi overthinking, DMN ini mengalami hiperaktivitas—artinya ia menolak untuk dinonaktifkan. Hipnoterapi klinis bekerja dengan menurunkan aktivitas DMN secara aman sehingga pikiran Anda menjadi tenang.",
+      defaultResponse: "Terima kasih telah berbagi. Saya asisten AI Karuna Bot. Saya dapat mengedukasi Anda seputar sains di balik kecemasan, neurosains (seperti Default Mode Network), meluruskan mitos hipnoterapi klinis, atau membantu Anda menjadwalkan konsultasi. Ada topik spesifik yang ingin Anda diskusikan lebih jauh?"
+    };
+
+    const quickReplySets = {
+      initial: [
+        "🧠 Pahami Gejala/Curhat (AI Mode)",
+        "🔍 Hipnoterapi itu Gaib atau Ilmiah?",
+        "📝 Ikut Tes Kesehatan Mental",
+        "📞 Hubungi Terapis (Manusia)"
+      ],
+      curhatMode: [
+        "Saya sering cemas akhir-akhir ini karena kerjaan",
+        "💔 Sulit Move On (Patah Hati)",
+        "🚨 Panic Attack (Serangan Panik)",
+        "Mengapa saya overthinking?",
+        "Kembali ke menu awal"
+      ],
+      curhatCemasDetails: [
+        "Iya, saya sampai sulit tidur/insomnia.",
+        "Saya jadi sering menunda kerjaan (prokrastinasi).",
+        "Saya hanya ingin tahu cara menenangkannya."
+      ],
+      hypnoDetails: [
+        "Ya, rekomendasi artikel ilmiah tentang ini.",
+        "Saya mau coba konsultasi langsung."
+      ],
+      followUpAction: [
+        "Buka Pusat Edukasi",
+        "Mulai tes kecemasan",
+        "Kembali ke menu awal"
+      ]
+    };
+
+    /* ==========================================================================
+       1. TAB-BASED VIEW ROUTING (SPA MECHANISM)
+       ========================================================================== */
+    
+    function navigateToTab(tabId) {
+      if (tabId === activeTab) return;
+      
+      const currentView = document.getElementById(`view-${activeTab}`);
+      const targetView = document.getElementById(`view-${tabId}`);
+      const navLinks = document.querySelectorAll('.nav-links a');
+      const readingBarContainer = document.getElementById('readingBarContainer');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${tabId}` || (tabId === 'booking' && href === '#booking')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+
+      if (tabId === 'learning') {
+        readingBarContainer.style.display = 'block';
+      } else {
+        readingBarContainer.style.display = 'none';
+      }
+
+      if (currentView) {
+        currentView.classList.remove('show');
+        
+        setTimeout(() => {
+          currentView.classList.remove('active');
+          
+          targetView.classList.add('active');
+          void targetView.offsetWidth;
+          targetView.classList.add('show');
+          
+          activeTab = tabId;
+          window.scrollTo(0, 0);
+          
+          if (tabId === 'bot') {
+            const chatBox = document.getElementById('chatMessages');
+            chatBox.scrollTop = chatBox.scrollHeight;
+          }
+        }, 220); 
+      } else {
+        targetView.classList.add('active');
+        void targetView.offsetWidth;
+        targetView.classList.add('show');
+        activeTab = tabId;
+      }
+    }
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.substring(1) || 'home';
+      const validTabs = ['home', 'assessment', 'learning', 'gallery', 'bot', 'booking'];
+      if (validTabs.includes(hash)) {
+        navigateToTab(hash);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      // Load any superadmin inline edits and custom gallery items first
+      loadAdminChanges();
+      loadGallery();
+
+      // Intercept SPA anchor links to handle routing safely without triggering browser origin warnings
+      const spaLinks = document.querySelectorAll('.nav-links a, .footer-links a, .hero-ctas a, .result-actions a, .wave-controls a');
+      spaLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (href && href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
+            const tabId = href.substring(1);
+            const validTabs = ['home', 'assessment', 'learning', 'gallery', 'bot', 'booking'];
+            if (validTabs.includes(tabId)) {
+              e.preventDefault();
+              navigateToTab(tabId);
+              updateHashSafe(tabId);
+            }
+          }
+        });
+      });
+
+      let hash = 'home';
+      try {
+        hash = window.location.hash.substring(1) || 'home';
+      } catch (e) {
+        console.warn("Could not read initial hash:", e);
+      }
+      
+      const validTabs = ['home', 'assessment', 'learning', 'gallery', 'bot', 'booking'];
+      if (validTabs.includes(hash)) {
+        const targetView = document.getElementById(`view-${hash}`);
+        const currentActive = document.querySelector('.page-view.active');
+        if (currentActive && currentActive.id !== `view-${hash}`) {
+          currentActive.classList.remove('active', 'show');
+        }
+        if (targetView) {
+          targetView.classList.add('active', 'show');
+        }
+        activeTab = hash;
+        
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === `#${hash}` || (hash === 'booking' && href === '#booking')) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+        
+        if (hash === 'learning') {
+          const readingBarContainer = document.getElementById('readingBarContainer');
+          if (readingBarContainer) readingBarContainer.style.display = 'block';
+        }
+      }
+      
+      setBrainState('beta');
+      renderQuestion();
+      setupCalendar();
+      
+      triggerChatBotGreeting();
+    });
+
+    window.addEventListener('scroll', () => {
+      if (activeTab === 'learning') {
+        const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('readingBar').style.width = scrolled + '%';
+        
+        // Dynamic active outline matching sidebar scroll position
+        const subs = ['article-sub-1', 'article-sub-2'];
+        let activeSub = 'Pengantar';
+        subs.forEach(id => {
+          const el = document.getElementById(id);
+          if (el && winScroll >= el.offsetTop - 200) {
+            activeSub = id;
+          }
+        });
+        
+        const sidebarLinks = document.querySelectorAll('.sidebar-sticky-card a');
+        sidebarLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === '#view-learning' && activeSub === 'Pengantar') {
+            link.classList.add('active');
+          } else if (href === `#${activeSub}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+
+    function triggerFloatChat() {
+      navigateToTab('bot');
+      updateHashSafe('bot');
+    }
+
+    // Refactored dynamic Floating Toast Popup Utility
+    function showToast(message) {
+      const toastBox = document.getElementById('toastBox');
+      const toastMessage = document.getElementById('toastMessage');
+      
+      toastMessage.innerHTML = message;
+      toastBox.style.display = 'flex';
+      
+      void toastBox.offsetWidth; // Force repaint
+      toastBox.classList.add('show');
+      
+      setTimeout(() => {
+        toastBox.classList.remove('show');
+        setTimeout(() => {
+          toastBox.style.display = 'none';
+        }, 500);
+      }, 6000);
+    }
+
+    /* ==========================================================================
+       2. BRAINWAVE CANVAS ANIMATION (FLUID RIBBON SILK EFFECT)
+       ========================================================================== */
+     // Waves configuration array
+    
+    let waves = [
+      {
+        beta: { freq: 0.005, amp: 28, speed: 0.012, yOffset: -15, color: [211, 107, 87, 0.35] }, // Terracotta
+        alpha: { freq: 0.002, amp: 12, speed: 0.003, yOffset: -5, color: [92, 184, 155, 0.3] },  // Calm Sage Green
+        phase: 0,
+        width: 5
+      },
+      {
+        beta: { freq: 0.003, amp: 35, speed: -0.008, yOffset: 10, color: [230, 223, 211, 0.55] }, // Champagne Gold
+        alpha: { freq: 0.0015, amp: 18, speed: -0.002, yOffset: 5, color: [230, 223, 211, 0.5] },
+        phase: 1.5,
+        width: 8
+      },
+      {
+        beta: { freq: 0.006, amp: 20, speed: 0.016, yOffset: -5, color: [46, 37, 34, 0.15] }, // Espresso tint
+        alpha: { freq: 0.0025, amp: 10, speed: 0.004, yOffset: -2, color: [244, 240, 230, 0.35] },
+        phase: 3.0,
+        width: 4
+      },
+      {
+        beta: { freq: 0.004, amp: 32, speed: -0.010, yOffset: 20, color: [211, 107, 87, 0.25] }, // Terracotta
+        alpha: { freq: 0.0018, amp: 15, speed: -0.003, yOffset: 12, color: [92, 184, 155, 0.25] }, // Sage Green
+        phase: 4.5,
+        width: 10
+      },
+      {
+        beta: { freq: 0.007, amp: 16, speed: 0.020, yOffset: -25, color: [240, 215, 170, 0.5] }, // Gold tint
+        alpha: { freq: 0.003, amp: 8, speed: 0.005, yOffset: -10, color: [240, 215, 170, 0.4] },
+        phase: 0.8,
+        width: 3
+      },
+      {
+        beta: { freq: 0.0035, amp: 40, speed: 0.009, yOffset: 5, color: [230, 223, 211, 0.45] }, // Champagne Gold
+        alpha: { freq: 0.0012, amp: 22, speed: 0.002, yOffset: 0, color: [230, 223, 211, 0.4] },
+        phase: 2.2,
+        width: 12
+      },
+      {
+        beta: { freq: 0.0055, amp: 26, speed: -0.014, yOffset: -10, color: [211, 107, 87, 0.2] },
+        alpha: { freq: 0.0022, amp: 11, speed: -0.004, yOffset: -6, color: [92, 184, 155, 0.2] },
+        phase: 3.7,
+        width: 6
+      }
+    ];
+    
+    function resizeCanvas() {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width > 0 && rect.height > 0) {
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        canvasWidth = canvas.width;
+        canvasHeight = canvas.height;
+      }
+    }
+    
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('DOMContentLoaded', resizeCanvas);
+    window.addEventListener('load', resizeCanvas);
+    resizeCanvas();
+
+    function interpolateColor(color1, color2, progress) {
+      const r = Math.round(color1[0] + (color2[0] - color1[0]) * progress);
+      const g = Math.round(color1[1] + (color2[1] - color1[1]) * progress);
+      const b = Math.round(color1[2] + (color2[2] - color1[2]) * progress);
+      const a = (color1[3] + (color2[3] - color1[3]) * progress).toFixed(3);
+      return `rgba(${r}, ${g}, ${b}, ${a})`;
+    }
+    
+    // breathingCycleActive and breathingTimeout are declared globally at the top
+    
+    function startBreathingGuide() {
+      const overlay = document.getElementById('breathingGuide');
+      const circle = document.getElementById('breathingCircle');
+      const label = document.getElementById('breathingLabel');
+      
+      if (!overlay || !circle || !label) return;
+      overlay.style.display = 'flex';
+      breathingCycleActive = true;
+      
+      function runCycle() {
+        if (!breathingCycleActive) return;
+        
+        // Inhale: 4s
+        circle.style.transition = 'transform 4s cubic-bezier(0.4, 0, 0.2, 1), background-color 4s ease';
+        circle.style.transform = 'scale(2.2)';
+        circle.style.backgroundColor = 'rgba(92, 184, 155, 0.28)';
+        label.innerText = 'TARIK NAPAS...';
+        
+        breathingTimeout = setTimeout(() => {
+          if (!breathingCycleActive) return;
+          
+          // Hold: 4s
+          label.innerText = 'TAHAN...';
+          
+          breathingTimeout = setTimeout(() => {
+            if (!breathingCycleActive) return;
+            
+            // Exhale: 6s
+            circle.style.transition = 'transform 6s cubic-bezier(0.4, 0, 0.2, 1), background-color 6s ease';
+            circle.style.transform = 'scale(1.0)';
+            circle.style.backgroundColor = 'rgba(92, 184, 155, 0.15)';
+            label.innerText = 'HEMBUSKAN...';
+            
+            breathingTimeout = setTimeout(() => {
+              runCycle();
+            }, 6000);
+            
+          }, 4000);
+          
+        }, 4000);
+      }
+      
+      runCycle();
+    }
+    
+    function stopBreathingGuide() {
+      breathingCycleActive = false;
+      clearTimeout(breathingTimeout);
+      const overlay = document.getElementById('breathingGuide');
+      if (overlay) overlay.style.display = 'none';
+    }
+
+    function setBrainState(state) {
+      waveState = state;
+      
+      const btnBeta = document.getElementById('btnBeta');
+      const btnAlpha = document.getElementById('btnAlpha');
+      const brainStatus = document.getElementById('brainStatus');
+      const brainDescription = document.getElementById('brainDescription');
+      
+      if (state === 'alpha') {
+        if (btnBeta) btnBeta.classList.remove('active');
+        if (btnAlpha) btnAlpha.classList.add('active');
+        if (brainStatus) {
+          brainStatus.innerText = "Tenang (Alpha/Theta)";
+          brainStatus.className = "brain-status-badge status-alpha";
+        }
+        if (brainDescription) {
+          brainDescription.innerHTML = "<strong>Kondisi Alpha/Theta (4-12 Hz)</strong>: Default Mode Network (DMN) mereda, amigdala menjadi rileks, gelombang melambat secara teratur, menurunkan kecemasan, otot mengendur, dan metabolisme stabil.";
+        }
+        startBreathingGuide();
+      } else {
+        if (btnBeta) btnBeta.classList.add('active');
+        if (btnAlpha) btnAlpha.classList.remove('active');
+        if (brainStatus) {
+          brainStatus.innerText = "Overthinking (Beta)";
+          brainStatus.className = "brain-status-badge status-beta";
+        }
+        if (brainDescription) {
+          brainDescription.innerHTML = "<strong>Kondisi Beta (12-30 Hz)</strong>: Default Mode Network (DMN) aktif, memicu pikiran berputar tanpa arah, amigdala bersiap menghadapi stres, otot menegang, dan napas dangkal.";
+        }
+        stopBreathingGuide();
+      }
+    }
+    
+    function animateWaves() {
+      if (!ctx) return;
+      if (canvasWidth === 0 || canvasHeight === 0) {
+        resizeCanvas();
+      }
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+      
+      if (waveState === 'alpha' && transitionProgress < 1) {
+        transitionProgress += 0.015; 
+      } else if (waveState === 'beta' && transitionProgress > 0) {
+        transitionProgress -= 0.015;
+      }
+      
+      waves.forEach((wave) => {
+        const freq = wave.beta.freq + (wave.alpha.freq - wave.beta.freq) * transitionProgress;
+        const amp = wave.beta.amp + (wave.alpha.amp - wave.beta.amp) * transitionProgress;
+        const speed = wave.beta.speed + (wave.alpha.speed - wave.beta.speed) * transitionProgress;
+        const yOffset = wave.beta.yOffset + (wave.alpha.yOffset - wave.beta.yOffset) * transitionProgress;
+        const strokeColor = interpolateColor(wave.beta.color, wave.alpha.color, transitionProgress);
+        
+        wave.phase += speed;
+        
+        // PASS 1: Volumetric ambient ribbon glow (thick line with reduced opacity)
+        ctx.beginPath();
+        ctx.strokeStyle = strokeColor.replace(/[\d\.]+\)$/, (val) => parseFloat(val) * 0.35 + ')');
+        ctx.lineWidth = wave.width * 3.5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        
+        for (let x = 0; x < canvasWidth; x++) {
+          const sinValue = Math.sin(x * freq + wave.phase);
+          const yBase = canvasHeight / 2 + yOffset;
+          const y = yBase + sinValue * amp;
+          
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        ctx.stroke();
+
+        // PASS 2: Primary ribbon core (defined line)
+        ctx.beginPath();
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = wave.width;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        
+        for (let x = 0; x < canvasWidth; x++) {
+          const sinValue = Math.sin(x * freq + wave.phase);
+          const yBase = canvasHeight / 2 + yOffset;
+          const y = yBase + sinValue * amp;
+          
+          if (x === 0) {
+            ctx.moveTo(x, y);
+          } else {
+            ctx.lineTo(x, y);
+          }
+        }
+        ctx.stroke();
+      });
+      
+      requestAnimationFrame(animateWaves);
+    }
+    
+    animateWaves();
+
+    // currentQuestionIndex and userScores are declared globally at the top
+    
+    function updateProgress() {
+      const progressBar = document.getElementById('progressBar');
+      const progressText = document.getElementById('progressText');
+      const progressPercentage = ((currentQuestionIndex + 1) / questions.length) * 100;
+      
+      progressBar.style.width = `${progressPercentage}%`;
+      progressText.innerText = `${currentQuestionIndex + 1} dari ${questions.length}`;
+    }
+    
+    function selectOption(scoreValue) {
+      userScores[currentQuestionIndex] = scoreValue;
+      
+      const optionButtons = document.querySelectorAll('.option-button');
+      optionButtons.forEach((btn, idx) => {
+        if (idx === scoreValue) {
+          btn.classList.add('selected');
+        } else {
+          btn.classList.remove('selected');
+        }
+      });
+      
+      setTimeout(() => {
+        if (currentQuestionIndex < questions.length - 1) {
+          currentQuestionIndex++;
+          renderQuestion();
+        } else {
+          calculateAndShowResults();
+        }
+      }, 250);
+    }
+    
+    function renderQuestion() {
+      updateProgress();
+      
+      const questionTitle = document.getElementById('questionTitle');
+      const optionButtons = document.querySelectorAll('.option-button');
+      const btnPrev = document.getElementById('btnPrev');
+      
+      questionTitle.innerText = questions[currentQuestionIndex];
+      btnPrev.disabled = currentQuestionIndex === 0;
+      
+      const previousScore = userScores[currentQuestionIndex];
+      optionButtons.forEach((btn, idx) => {
+        if (previousScore !== null && idx === previousScore) {
+          btn.classList.add('selected');
+        } else {
+          btn.classList.remove('selected');
+        }
+      });
+    }
+    
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderQuestion();
+      }
+    }
+    
+    function calculateAndShowResults() {
+      const totalScore = userScores.reduce((sum, score) => sum + score, 0);
+      const maxPossibleScore = questions.length * 3; // 5 * 3 = 15
+      
+      document.getElementById('quizProgressContainer').style.display = 'none';
+      document.getElementById('quizContent').style.display = 'none';
+      
+      const resultsWrapper = document.getElementById('resultsWrapper');
+      resultsWrapper.style.display = 'block';
+      
+      const gaugeFill = document.getElementById('gaugeFill');
+      const strokeDasharray = 433.5; 
+      const fillPercentage = totalScore / maxPossibleScore;
+      const offset = strokeDasharray - (strokeDasharray * fillPercentage);
+      
+      setTimeout(() => {
+        gaugeFill.style.strokeDashoffset = offset;
+      }, 100);
+      
+      document.getElementById('gaugeVal').innerHTML = `${totalScore}<span>dari ${maxPossibleScore}</span>`;
+      
+      const resultCategory = document.getElementById('resultCategory');
+      const resultDescription = document.getElementById('resultDescription');
+      const resultActions = document.querySelector('.result-actions');
+      
+      if (totalScore <= 5) {
+        resultCategory.innerText = "Tingkat Kecemasan Rendah";
+        resultDescription.innerText = "Pikiran Anda berada dalam kondisi yang relatif stabil. Tetap jaga kesehatan mental Anda dengan melakukan digital detox dan membaca artikel berkala kami tentang Mindfulness.";
+        setBrainState('alpha');
+        
+        resultActions.innerHTML = `
+          <a href="#booking" class="btn btn-primary" onclick="navigateToTab('booking')">Konsultasi dengan Terapis</a>
+          <button class="btn btn-secondary" onclick="resetQuiz()">Ulangi Tes</button>
+          <a href="#learning" class="btn btn-secondary" style="border:none; text-decoration: underline;" onclick="navigateToTab('learning')">Pelajari Sains di Baliknya</a>
+        `;
+      } else if (totalScore <= 10) {
+        resultCategory.innerText = "Tingkat Kecemasan Sedang";
+        resultDescription.innerText = "Anda sedang mengalami tekanan emosional. Otak Anda (Amigdala) mulai memberikan sinyal lelah. Ini adalah waktu yang tepat untuk memperlambat ritme hidup. Anda bisa mencoba teknik pernapasan sederhana di menu Video Edukasi kami.";
+        setBrainState('beta');
+        
+        resultActions.innerHTML = `
+          <a href="#booking" class="btn btn-primary" onclick="navigateToTab('booking')">Konsultasi dengan Terapis</a>
+          <button class="btn btn-secondary" onclick="resetQuiz()">Ulangi Tes</button>
+          <a href="#learning" class="btn btn-secondary" style="border:none; text-decoration: underline;" onclick="navigateToTab('learning')">Pelajari Sains di Baliknya</a>
+        `;
+      } else {
+        resultCategory.innerText = "Tingkat Kecemasan Tinggi";
+        resultDescription.innerHTML = "<strong>\"Halo, tarik napas dalam-dalam... Anda aman saat ini. Skor Anda menunjukkan bahwa pikiran bawah sadar dan tubuh Anda sedang memikul beban yang sangat berat. Rasa lelah, cemas, dan overthinking yang Anda rasakan adalah valid, dan Anda tidak harus menghadapinya sendirian.\"</strong>";
+        setBrainState('beta');
+        
+        resultActions.innerHTML = `
+          <a href="https://wa.me/6285604598362?text=Halo%20Karunaconnect,%20saya%20baru%20saja%20menyelesaikan%20skrining%20kecemasan%20dengan%20hasil%20Skor%20Tinggi%20(${totalScore}/15).%20Saya%20ingin%20berdiskusi%20dengan%20terapis." target="_blank" class="btn btn-primary">Diskusikan Hasil Ini dengan Terapis Kami via WhatsApp</a>
+          <a href="#learning" class="btn btn-secondary" onclick="navigateToTab('learning')">Baca Artikel: Cara Menenangkan Pikiran yang Cemas</a>
+          <button class="btn btn-secondary" onclick="resetQuiz()">Ulangi Tes</button>
+        `;
+      }
+    }
+    
+    function resetQuiz() {
+      currentQuestionIndex = 0;
+      userScores = Array(questions.length).fill(null);
+      
+      document.getElementById('quizProgressContainer').style.display = 'flex';
+      document.getElementById('quizContent').style.display = 'block';
+      document.getElementById('resultsWrapper').style.display = 'none';
+      
+      document.getElementById('gaugeFill').style.strokeDashoffset = 433.5;
+      
+      renderQuestion();
+    }
+
+    /* ==========================================================================
+       4. INTERACTIVE BRAIN GRAPHIC COMPARISON
+       ========================================================================== */
+    function toggleBrainCompare(mode) {
+      const tabBeta = document.getElementById('tabCompareBeta');
+      const tabAlpha = document.getElementById('tabCompareAlpha');
+      
+      const brainDmnPath = document.getElementById('brainDmnPath');
+      const brainAmygdala = document.getElementById('brainAmygdala');
+      const brainPfc = document.getElementById('brainPfc');
+      const brainPcc = document.getElementById('brainPcc');
+      
+      const bulletsContainer = document.getElementById('compareBullets');
+      
+      if (mode === 'alpha') {
+        tabBeta.classList.remove('active');
+        tabAlpha.classList.add('active');
+        
+        brainDmnPath.className.baseVal = "brain-path-calm";
+        brainDmnPath.setAttribute('stroke', '#5cb89b');
+        
+        brainAmygdala.className.baseVal = "brain-node glow-green";
+        brainPfc.className.baseVal = "brain-node glow-green";
+        brainPcc.className.baseVal = "brain-node glow-green";
+        
+        bulletsContainer.innerHTML = `
+          <div class="bullet-item">
+            <span class="bullet-icon" style="background:#5cb89b; color: white;">✓</span>
+            <div class="bullet-text">
+              <strong>Amigdala Tenang (Downregulated):</strong> Menghentikan pelepasan hormon kortisol dan menghentikan sinyal bahaya semu.
+            </div>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon" style="background:#5cb89b; color: white;">✓</span>
+            <div class="bullet-text">
+              <strong>DMN Dinonaktifkan Sementara:</strong> Pikiran otomatis yang cemas (overthinking) mereda, digantikan oleh ketenangan mental yang mendalam.
+            </div>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon" style="background:#5cb89b; color: white;">✓</span>
+            <div class="bullet-text">
+              <strong>Gelombang Alpha & Theta Aktif:</strong> Otak memasuki kondisi trance yang sangat tenang, mempercepat regenerasi mental dan memprogram ulang bawah sadar.
+            </div>
+          </div>
+        `;
+      } else {
+        tabBeta.classList.add('active');
+        tabAlpha.classList.remove('active');
+        
+        brainDmnPath.className.baseVal = "brain-path-active";
+        brainDmnPath.setAttribute('stroke', '#e85a4f');
+        
+        brainAmygdala.className.baseVal = "brain-node glow-red";
+        brainPfc.className.baseVal = "brain-node glow-red";
+        brainPcc.className.baseVal = "brain-node glow-red";
+        
+        bulletsContainer.innerHTML = `
+          <div class="bullet-item">
+            <span class="bullet-icon">🚨</span>
+            <div class="bullet-text">
+              <strong>Amigdala Hiperaktif:</strong> Mengalami alarm stres konstan. Amigdala salah mendeteksi ketakutan abstrak sebagai ancaman hidup-mati.
+            </div>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon">🔄</span>
+            <div class="bullet-text">
+              <strong>Default Mode Network (DMN) Sibuk:</strong> Jaringan melamun berjalan tanpa henti, memicu pemutaran berulang kegagalan masa lalu atau masa depan.
+            </div>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon">⚡</span>
+            <div class="bullet-text">
+              <strong>Gelombang Beta Tinggi:</strong> Otak beroperasi dalam frekuensi panik yang cepat, memicu ketegangan fisik di tubuh.
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    /* ==========================================================================
+       5. HYBRID AI CHATBOT (KARUNA BOT - FLOWCHART ALIGNED)
+       ========================================================================== */
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const chatQuickReplies = document.getElementById('chatQuickReplies');
+
+    // Trigger: Skenario 1 - Sulit Move On (Patah Hati)
+    // Trigger: Skenario 2 - Panic Attack (Serangan Panik)
+    function handleConversationalLogic(text) {
+      const lower = text.toLowerCase();
+      
+      // Safety Net Protocol (Emergency Redirection)
+      if (lower.includes('bunuh diri') || lower.includes('mati') || lower.includes('mengakhiri hidup') || lower.includes('sayat') || lower.includes('menyakiti diri') || lower.includes('suicide') || lower.includes('depresi berat') || lower.includes('stres berat')) {
+        chatContext = 'initial';
+        updateQuickReplies(quickReplySets.initial);
+        
+        setTimeout(() => {
+          appendSpecialTerracottaButton("Hubungi Terapis Karunaconnect Sekarang via WhatsApp", "https://wa.me/6285604598362?text=Halo%20Karunaconnect,%20saya%20membutuhkan%20bantuan%20darurat/konsultasi%20segera");
+        }, 50);
+        
+        return botMessages.crisis;
+      }
+      
+      // TRIGGER: Skenario 1 - Sulit Move On
+      if (text === "💔 Sulit Move On (Patah Hati)" || lower.includes('mantan') || lower.includes('patah hati') || lower.includes('move on') || lower.includes('masa lalu')) {
+        chatContext = 'moveOnBranch';
+        
+        sendDelayedBotMessages([
+          "Kehilangan seseorang yang pernah menjadi bagian penting dalam hidup Anda adalah proses yang sangat berat. Menangis, merasa rindu, atau merasa hampa adalah respons yang sangat wajar. Jangan menghakimi diri sendiri karena belum bisa melupakannya. Proses menyembuhkan luka batin membutuhkan waktu. 🤍",
+          "Tahukah Anda? Secara ilmiah, ketika kita patah hati, otak kita memproses rasa sakit emosional tersebut di area yang sama dengan rasa sakit fisik (Anterior Cingulate Cortex).<br><br>Selain itu, ingatan tentang mantan memicu produksi hormon stres (kortisol) dan menurunkan hormon kebahagiaan (dopamin) secara drastis. Otak Anda sebenarnya sedang mengalami fase 'sakau' emosional karena kehilangan sumber dopamin tersebut. Jadi, ini bukan karena Anda lemah, melainkan otak Anda sedang beradaptasi.",
+          "Hipnoterapi dapat membantu Anda melepaskan ikatan emosional negatif (emotional cord attachment) yang masih tertinggal di pikiran bawah sadar, tanpa menghapus memori indahnya. Ini membantu Anda mengingat masa lalu tanpa rasa sakit yang sama.<br><br>Apa yang paling Anda rasakan saat ini?"
+        ], 1800, [
+          "🟢 Saya merasa bersalah & menyalahkan diri sendiri.",
+          "🔵 Saya tahu dia buruk, tapi kenapa tetap rindu?",
+          "📝 Beri saya artikel panduan move on secara ilmiah.",
+          "📞 Saya mau rilis emosi ini bersama Terapis."
+        ]);
+        return null;
+      }
+
+      // Skenario 1 Sub-branches
+      if (text === "🟢 Saya merasa bersalah & menyalahkan diri sendiri.") {
+        updateQuickReplies(["📞 Booking Terapis Sekarang", "Kembali ke menu awal"]);
+        return "Menyalahkan diri sendiri adalah mekanisme pertahanan ego untuk mencari kontrol atas situasi yang tidak bisa diubah. Di bawah sadar Anda, ada rasa bersalah yang perlu divalidasi dan dirilis. Hipnoterapi klinis membantu Anda berdamai dengan masa lalu. Apakah Anda ingin mencoba sesi rilis emosi bersama terapis kami?";
+      }
+
+      if (text === "🔵 Saya tahu dia buruk, tapi kenapa tetap rindu?") {
+        updateQuickReplies(["📞 Booking Terapis Sekarang", "Kembali ke menu awal"]);
+        return "Kerinduan itu dipicu oleh memori sirkuit reward dopamin otak Anda yang merindukan 'sensasi' dopamin yang dulu ia berikan, terlepas dari kenyataan logis bahwa hubungan itu telah berakhir. Otak kita merindukan pola kenyamanan lama. Mengakui rasa rindu ini sebagai proses kimiawi membantu kita lebih tenang melepaskannya. 🤍";
+      }
+
+      if (text === "📝 Beri saya artikel panduan move on secara ilmiah.") {
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('learning');
+          updateHashSafe('learning');
+        }, 1500);
+        return "Pilihan yang bagus! Saya alihkan Anda ke Pusat Edukasi kami untuk membaca artikel ilmiah tentang neurosains patah hati...";
+      }
+
+      if (text === "📞 Saya mau rilis emosi ini bersama Terapis." || text === "📞 Booking Terapis Sekarang") {
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('booking');
+          updateHashSafe('booking');
+        }, 1500);
+        return "Tentu, kami siap mendampingi Anda melewati masa transisi ini dengan aman dan tanpa penghakiman. Saya akan mengalihkan Anda ke tab Booking untuk menjadwalkan sesi rilis emosi.";
+      }
+      
+      // TRIGGER: Skenario 2 - Panic Attack
+      if (text === "🚨 Panic Attack (Serangan Panik)" || lower.includes('panik') || lower.includes('sesak napas') || lower.includes('dada sesak') || lower.includes('cemas parah') || lower.includes('mau mati') || lower.includes('panic attack')) {
+        chatContext = 'panicBranch';
+        
+        sendDelayedBotMessages([
+          "Halo, jika Anda saat ini sedang merasakan serangan panik, tarik napas dalam-dalam... lalu hembuskan perlahan.<br><br>Dengarkan saya: Anda aman saat ini. Serangan panik ini sangat tidak nyaman, tetapi ini tidak berbahaya dan akan segera berlalu. Tubuh Anda hanya sedang salah mengira ada bahaya besar.",
+          "Mari kita tenangkan sistem saraf Anda sekarang juga. Coba lihat ke sekeliling Anda, dan sebutkan di dalam hati:<br><br>• <strong>5</strong> benda yang bisa Anda lihat<br>• <strong>4</strong> benda yang bisa Anda sentuh<br>• <strong>3</strong> suara yang bisa Anda dengar<br>• <strong>2</strong> aroma yang bisa Anda cium<br>• <strong>1</strong> hal baik tentang diri Anda saat ini<br><br>Ambil napas dalam lagi... tahan 4 detik... hembuskan 6 detik. Apakah perasaan Anda sudah sedikit lebih tenang?"
+        ], 2500, [
+          "🟢 Ya, sudah sedikit lebih tenang.",
+          "🔴 Belum, saya masih sangat panik."
+        ]);
+        return null;
+      }
+
+      // Skenario 2 Sub-branches
+      if (text === "🟢 Ya, sudah sedikit lebih tenang.") {
+        updateQuickReplies([
+          "📖 Baca Artikel: Mengenal Pemicu Panic Attack",
+          "🎥 Tonton Video: Teknik Pernapasan Saat Cemas",
+          "📞 Konsultasi untuk Menyembuhkan Panic Attack"
+        ]);
+        return "Syukurlah. Secara neuroscience, panic attack terjadi ketika Amigdala (pusat takut) membajak otak Anda dan memicu respons fight-or-flight secara ekstrem tanpa alasan.<br><br>Melalui hipnoterapi, kita bisa melatih pikiran bawah sadar Anda untuk mengenali akar pemicu (bisa jadi trauma masa lalu tersembunyi) dan mengajari Amigdala Anda untuk tetap tenang, sehingga serangan panik tidak terus berulang di masa depan.";
+      }
+
+      if (text === "🔴 Belum, saya masih sangat panik.") {
+        updateQuickReplies(["Kembali ke menu awal"]);
+        setTimeout(() => {
+          appendSpecialTerracottaButton("Hubungi Terapis Karunaconnect Sekarang via WhatsApp", "https://wa.me/6285604598362?text=Halo%20Karunaconnect,%20saya%20sedang%20mengalami%20serangan%20panik%20dan%20membutuhkan%20pendampingan%20klinis%20segera.");
+        }, 50);
+        return "Saya mengerti. Silakan klik tombol di bawah untuk langsung terhubung dengan terapis kami via WhatsApp atau hubungi hotline Kemenkes RI (119). Tarik napas secara teratur.";
+      }
+
+      // Skenario 2 Action Redirects
+      if (text === "📖 Baca Artikel: Mengenal Pemicu Panic Attack") {
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('learning');
+          updateHashSafe('learning');
+        }, 1500);
+        return "Menuju ke tab Pusat Edukasi untuk membaca artikel pemicu panic attack...";
+      }
+
+      if (text === "🎥 Tonton Video: Teknik Pernapasan Saat Cemas") {
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('home');
+          updateHashSafe('home');
+          setBrainState('alpha'); 
+        }, 2000);
+        return "Mari menstabilkan napas Anda. Saya alihkan Anda ke Beranda (Brainwave Lab). Silakan ikuti visualisasi gelombang Alpha yang tenang untuk memandu ritme pernapasan perut Anda.";
+      }
+
+      if (text === "📞 Konsultasi untuk Menyembuhkan Panic Attack") {
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('booking');
+          updateHashSafe('booking');
+        }, 1500);
+        return "Tentu, kami siap membantu Anda meredakan kecemasan ini secara berkelanjutan. Saya alihkan Anda ke formulir pendaftaran jadwal terapis...";
+      }
+      
+      // General SPA Menus
+      if (text === "🧠 Pahami Gejala/Curhat (AI Mode)") {
+        chatContext = 'curhatMode';
+        updateQuickReplies(quickReplySets.curhatMode);
+        return botMessages.curhatIntro;
+      }
+      
+      if (text === "Saya sering cemas akhir-akhir ini karena kerjaan" || lower.includes('cemas karena kerjaan') || lower.includes('cemas akhir-akhir ini')) {
+        chatContext = 'curhatCemasDetails';
+        updateQuickReplies(quickReplySets.curhatCemasDetails);
+        return botMessages.curhatCemas;
+      }
+      
+      if (text === "Iya, saya sampai sulit tidur/insomnia.") {
+        chatContext = 'followUpAction';
+        updateQuickReplies(quickReplySets.followUpAction);
+        return botMessages.insomnia;
+      }
+      
+      if (text === "Saya jadi sering menunda kerjaan (prokrastinasi).") {
+        chatContext = 'followUpAction';
+        updateQuickReplies(quickReplySets.followUpAction);
+        return botMessages.prokrastinasi;
+      }
+      
+      if (text === "Saya hanya ingin tahu cara menenangkannya.") {
+        chatContext = 'followUpAction';
+        updateQuickReplies(quickReplySets.followUpAction);
+        return botMessages.caraMenenangkan;
+      }
+      
+      if (text === "🔍 Hipnoterapi itu Gaib atau Ilmiah?") {
+        chatContext = 'hypnoDetails';
+        updateQuickReplies(quickReplySets.hypnoDetails);
+        return botMessages.hypnoGaib;
+      }
+      
+      if (text === "Ya, rekomendasi artikel ilmiah tentang ini.") {
+        chatContext = 'followUpAction';
+        updateQuickReplies(quickReplySets.followUpAction);
+        return botMessages.hypnoArtikel;
+      }
+      
+      if (text === "Saya mau coba konsultasi langsung.") {
+        chatContext = 'initial';
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('booking');
+          updateHashSafe('booking');
+        }, 1500);
+        return botMessages.terapisBooking;
+      }
+      
+      if (text === "📝 Ikut Tes Kesehatan Mental" || text === "Mulai tes kecemasan" || text === "Buka Self-Assessment") {
+        chatContext = 'initial';
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('assessment');
+          updateHashSafe('assessment');
+        }, 1500);
+        return botMessages.tesKesehatan;
+      }
+      
+      if (text === "📞 Hubungi Terapis (Manusia)") {
+        chatContext = 'initial';
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('booking');
+          updateHashSafe('booking');
+        }, 1500);
+        return botMessages.terapisBooking;
+      }
+
+      if (text === "Buka Pusat Edukasi") {
+        chatContext = 'initial';
+        updateQuickReplies(quickReplySets.initial);
+        setTimeout(() => {
+          navigateToTab('learning');
+          updateHashSafe('learning');
+        }, 1500);
+        return "Saya alihkan Anda ke Pusat Edukasi kami untuk membaca artikel ilmiah...";
+      }
+
+      if (text === "Kembali ke menu awal" || lower.includes('menu awal') || lower.includes('batal')) {
+        chatContext = 'initial';
+        updateQuickReplies(quickReplySets.initial);
+        return "Kembali ke menu utama Karuna Bot. Silakan pilih opsi di bawah ini:";
+      }
+
+      if (lower.includes('dmn') || lower.includes('default mode') || lower.includes('overthinking') || lower.includes('berputar') || lower.includes('kepikiran')) {
+        return botMessages.dmnExplanation;
+      }
+      
+      if (lower.includes('mistis') || lower.includes('aman') || lower.includes('gaib') || lower.includes('hipnotis') || lower.includes('mitos') || lower.includes('sihir')) {
+        return botMessages.hypnoGaib;
+      }
+      
+      if (lower.includes('tidur') || lower.includes('insomnia') || lower.includes('malam') || lower.includes('istirahat')) {
+        return botMessages.insomnia;
+      }
+      
+      if (lower.includes('cemas') || lower.includes('anxiety') || lower.includes('panik') || lower.includes('stres') || lower.includes('skrining') || lower.includes('amigdala')) {
+        return botMessages.curhatCemas;
+      }
+
+      return botMessages.default;
+    }
+
+    function appendMessageBubble(text, sender) {
+      const bubble = document.createElement('div');
+      bubble.className = `message message-${sender}`;
+      bubble.innerHTML = text;
+      
+      chatMessages.insertBefore(bubble, typingIndicator);
+    }
+
+    function appendSpecialTerracottaButton(buttonText, url) {
+      const btnLink = document.createElement('a');
+      btnLink.href = url;
+      btnLink.target = "_blank";
+      btnLink.className = "btn";
+      btnLink.style.backgroundColor = "var(--accent-cta)";
+      btnLink.style.color = "var(--white)";
+      btnLink.style.display = "inline-flex";
+      btnLink.style.marginTop = "8px";
+      btnLink.style.padding = "12px 24px";
+      btnLink.style.borderRadius = "30px";
+      btnLink.style.fontSize = "0.9rem";
+      btnLink.style.boxShadow = "0 4px 15px rgba(211, 107, 87, 0.25)";
+      btnLink.innerText = `📞 ${buttonText}`;
+      
+      chatMessages.insertBefore(btnLink, typingIndicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Delay welcome message 3 seconds after loading (simulated via typing indicator)
+    function triggerChatBotGreeting() {
+      chatQuickReplies.style.display = 'none';
+      typingIndicator.style.display = 'block';
+      
+      setTimeout(() => {
+        typingIndicator.style.display = 'none';
+        
+        const bubble = document.createElement('div');
+        bubble.className = "message message-bot";
+        bubble.innerHTML = botMessages.greeting;
+        chatMessages.insertBefore(bubble, typingIndicator);
+        
+        updateQuickReplies(quickReplySets.initial);
+        chatQuickReplies.style.display = 'flex';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 2500); // 2.5s delay + load feel = 3 seconds greeting
+    }
+
+    function updateQuickReplies(replyArray) {
+      chatQuickReplies.innerHTML = '';
+      replyArray.forEach(text => {
+        const pill = document.createElement('span');
+        pill.className = 'reply-pill';
+        pill.innerText = text;
+        pill.addEventListener('click', () => sendQuickReply(text));
+        chatQuickReplies.appendChild(pill);
+      });
+    }
+
+    function sendQuickReply(text) {
+      appendMessageBubble(text, 'user');
+      
+      typingIndicator.style.display = 'block';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      setTimeout(() => {
+        typingIndicator.style.display = 'none';
+        const botResponse = handleConversationalLogic(text);
+        if (botResponse !== null) {
+          appendMessageBubble(botResponse, 'bot');
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      }, 750);
+    }
+
+    function handleChatEnter(event) {
+      if (event.key === 'Enter') {
+        sendUserMessage();
+      }
+    }
+
+    function sendUserMessage() {
+      const messageText = chatInput.value.trim();
+      if (!messageText) return;
+      
+      appendMessageBubble(messageText, 'user');
+      chatInput.value = '';
+      
+      typingIndicator.style.display = 'block';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      setTimeout(() => {
+        typingIndicator.style.display = 'none';
+        const botResponse = handleConversationalLogic(messageText);
+        if (botResponse !== null) {
+          appendMessageBubble(botResponse, 'bot');
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      }, 750);
+    }
+
+    function sendDelayedBotMessages(messages, delayMs, callbackReplies) {
+      chatQuickReplies.style.display = 'none';
+      let index = 0;
+      
+      function showNextMessage() {
+        if (index < messages.length) {
+          typingIndicator.style.display = 'block';
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+          
+          setTimeout(() => {
+            typingIndicator.style.display = 'none';
+            appendMessageBubble(messages[index], 'bot');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            index++;
+            showNextMessage();
+          }, delayMs);
+        } else {
+          if (callbackReplies) {
+            updateQuickReplies(callbackReplies);
+            chatQuickReplies.style.display = 'flex';
+          }
+        }
+      }
+      showNextMessage();
+    }
+
+    /* ==========================================================================
+       6. INTERACTIVE SCHEDULER CALENDAR & BOOKING FORM
+       ========================================================================= */
+    // setupCalendar function follows
+
+    function setupCalendar() {
+      const calendarGrid = document.getElementById('calendarGrid');
+      
+      for (let i = 0; i < 2; i++) {
+        const emptyCell = document.createElement('div');
+        calendarGrid.appendChild(emptyCell);
+      }
+      
+      for (let day = 1; day <= 31; day++) {
+        const dateCell = document.createElement('div');
+        dateCell.className = "calendar-date";
+        dateCell.innerText = day;
+        
+        const dayOfWeek = (day + 1) % 7; 
+        
+        if (dayOfWeek === 5 || dayOfWeek === 6) {
+          dateCell.classList.add('disabled');
+        } else {
+          dateCell.classList.add('available');
+          dateCell.addEventListener('click', () => {
+            selectDate(dateCell, day);
+          });
+        }
+        
+        calendarGrid.appendChild(dateCell);
+      }
+    }
+
+    function selectDate(element, dateNumber) {
+      const selectedCells = document.querySelectorAll('.calendar-date.selected');
+      selectedCells.forEach(cell => cell.classList.remove('selected'));
+      
+      element.classList.add('selected');
+      
+      selectedDateStr = `${dateNumber} Juli 2026`;
+      document.getElementById('bookingDateInput').value = selectedDateStr;
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('bookingName').value;
+      const email = document.getElementById('bookingEmail').value;
+      const phone = document.getElementById('bookingPhone').value;
+      const issue = document.getElementById('bookingIssue').value;
+      const notes = document.getElementById('bookingNotes') ? document.getElementById('bookingNotes').value : '';
+      
+      if (!name || !email || !phone || !issue || !selectedDateStr) {
+        alert("Mohon pilih tanggal konsultasi pada kalender terlebih dahulu!");
+        return;
+      }
+
+      // Open WhatsApp immediately inside user action to prevent popup blocker
+      const whatsappText = `Halo Admin Karunaconnect, saya ingin mengonfirmasi jadwal sesi konsultasi hipnoterapi.
+
+Nama: ${name}
+Email: ${email}
+WhatsApp: ${phone}
+Keluhan: ${issue}
+Tanggal Sesi: ${selectedDateStr}
+Catatan: ${notes}`;
+
+      const whatsappUrl = `https://wa.me/6285604598362?text=${encodeURIComponent(whatsappText)}`;
+      window.open(whatsappUrl, '_blank');
+
+      // Send to Formsubmit AJAX in background
+      fetch("https://formsubmit.co/ajax/wrahatnala.ardo@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Nama: name,
+          Email: email,
+          WhatsApp: phone,
+          Keluhan: issue,
+          Tanggal_Sesi: selectedDateStr,
+          Catatan: notes,
+          _subject: `Booking Konsultasi Baru dari ${name}`
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Email sent to admin:", data);
+      })
+      .catch(error => {
+        console.error("Error sending email:", error);
+      });
+      
+      showToast(`Terima kasih, <strong>${name}</strong>. Permohonan sesi mengenai <strong>${issue}</strong> untuk tanggal <strong>${selectedDateStr}</strong> berhasil dikirim. Anda dialihkan ke WhatsApp untuk konfirmasi instan.`);
+      
+      document.getElementById('bookingForm').reset();
+      const selectedCells = document.querySelectorAll('.calendar-date.selected');
+      selectedCells.forEach(cell => cell.classList.remove('selected'));
+      selectedDateStr = "";
+      document.getElementById('bookingDateInput').value = "";
+    }
+
+    // Toggle Hamburger Menu Mobile
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburgerMenu.addEventListener('click', () => {
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.background = 'rgba(253, 251, 247, 0.98)';
+        navLinks.style.padding = '20px';
+        navLinks.style.borderBottom = '1px solid var(--border-light)';
+        navLinks.style.gap = '15px';
+      }
+    });
+
+    navLinks.addEventListener('click', (e) => {
+      if (window.innerWidth <= 767 && e.target.tagName === 'A') {
+        navLinks.style.display = 'none';
+      }
+    });
+
+    /* ==========================================================================
+       7. SUPERADMIN EDIT MODE (LOGO DOUBLE-CLICK & LOCALSTORAGE STATE ENGINE)
+       ========================================================================== */
+    // logoLink event listener follows
+
+    // Double-click logo triggers admin edit mode
+    const logoLink = document.getElementById('brandLogo');
+    logoLink.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleAdminMode();
+    });
+
+    function toggleAdminMode() {
+      isAdminMode = !isAdminMode;
+      
+      const toolbar = document.getElementById('adminToolbar');
+      const uploadPanel = document.getElementById('adminUploadPanel');
+      const deleteBtns = document.querySelectorAll('.gallery-delete-btn');
+      const editableElements = document.querySelectorAll('.admin-editable');
+      
+      if (isAdminMode) {
+        toolbar.classList.add('show');
+        uploadPanel.style.display = 'block';
+        deleteBtns.forEach(btn => btn.style.display = 'flex');
+        editableElements.forEach(el => {
+          el.setAttribute('contenteditable', 'true');
+          el.classList.add('editing');
+        });
+        showToast("🔓 <strong>Mode Superadmin Aktif</strong>: Klik langsung pada teks halaman untuk mengedit. Unggah media baru di tab Galeri.");
+      } else {
+        toolbar.classList.remove('show');
+        uploadPanel.style.display = 'none';
+        deleteBtns.forEach(btn => btn.style.display = 'none');
+        editableElements.forEach(el => {
+          el.removeAttribute('contenteditable');
+          el.classList.remove('editing');
+        });
+      }
+      
+      // Re-render gallery grid to apply/remove editable states inside gallery
+      renderGalleryGrid();
+    }
+
+    function saveAdminChanges() {
+      const editableElements = document.querySelectorAll('.admin-editable');
+      const editedTexts = {};
+      
+      editableElements.forEach(el => {
+        const key = el.getAttribute('data-admin-key');
+        if (key) {
+          editedTexts[key] = el.innerHTML;
+        }
+      });
+      
+      localStorage.setItem('karuna_edited_texts', JSON.stringify(editedTexts));
+      showToast("✓ <strong>Perubahan Tersimpan</strong>: Seluruh penulisan teks telah disimpan ke local storage browser.");
+      toggleAdminMode(); 
+    }
+
+    function loadAdminChanges() {
+      const savedTextsStr = localStorage.getItem('karuna_edited_texts');
+      if (savedTextsStr) {
+        try {
+          const savedTexts = JSON.parse(savedTextsStr);
+          Object.keys(savedTexts).forEach(key => {
+            const el = document.querySelector(`.admin-editable[data-admin-key="${key}"]`);
+            if (el) {
+              el.innerHTML = savedTexts[key];
+            }
+          });
+        } catch (e) {
+          console.error("Gagal membaca saved texts:", e);
+        }
+      }
+    }
+
+    /* ==========================================================================
+       8. DYNAMIC GALLERY MEDIA LOADER & FILEREADER UPLOAD ENGINE
+       ========================================================================== */
+    // defaultGalleryItems and galleryItems are declared globally at the top
+
+    function loadGallery() {
+      const savedItemsStr = localStorage.getItem('karuna_gallery_items');
+      if (savedItemsStr) {
+        try {
+          galleryItems = JSON.parse(savedItemsStr);
+        } catch (e) {
+          console.error("Gagal memuat galeri, fallback ke default:", e);
+          galleryItems = [...defaultGalleryItems];
+        }
+      } else {
+        galleryItems = [...defaultGalleryItems];
+      }
+      renderGalleryGrid();
+    }
+
+    // Helper to convert YouTube URL to embed URL
+    function getYoutubeEmbedUrl(url) {
+      if (!url) return '';
+      let videoId = '';
+      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+      const match = url.match(regExp);
+      if (match && match[2].length === 11) {
+        videoId = match[2];
+      }
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+    }
+
+    function renderGalleryGrid() {
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '';
+      
+      if (galleryItems.length === 0) {
+        grid.innerHTML = '<div style="grid-column: span 3; text-align: center; padding: 60px; color: var(--text-light); font-weight: 500;">Galeri kosong. Silakan masuk ke Mode Superadmin (double-click logo) untuk mengunggah media gambar atau video baru.</div>';
+        return;
+      }
+      
+      galleryItems.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+        
+        // Delete button for admin
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'gallery-delete-btn';
+        deleteBtn.innerHTML = '×';
+        deleteBtn.style.display = isAdminMode ? 'flex' : 'none';
+        deleteBtn.onclick = (e) => {
+          e.stopPropagation();
+          deleteGalleryItem(item.id);
+        };
+        card.appendChild(deleteBtn);
+        
+        const mediaContainer = document.createElement('div');
+        mediaContainer.className = 'gallery-media-container';
+        
+        const badge = document.createElement('span');
+        badge.className = `gallery-badge ${item.type === 'video' ? 'badge-video' : (item.type === 'youtube' ? 'badge-youtube' : '')}`;
+        badge.innerText = item.type === 'video' ? 'Video' : (item.type === 'youtube' ? 'YouTube' : 'Foto');
+        mediaContainer.appendChild(badge);
+        
+        if (item.type === 'youtube') {
+          const iframe = document.createElement('iframe');
+          iframe.src = getYoutubeEmbedUrl(item.mediaUrl);
+          iframe.width = "100%";
+          iframe.height = "100%";
+          iframe.style.border = "none";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+          iframe.allowFullscreen = true;
+          mediaContainer.appendChild(iframe);
+        } else if (item.type === 'video') {
+          const video = document.createElement('video');
+          video.src = item.mediaUrl;
+          video.controls = true;
+          video.preload = 'metadata';
+          mediaContainer.appendChild(video);
+        } else {
+          const img = document.createElement('img');
+          img.src = item.mediaUrl;
+          img.alt = item.title;
+          img.loading = 'lazy';
+          mediaContainer.appendChild(img);
+        }
+        
+        card.appendChild(mediaContainer);
+        
+        const info = document.createElement('div');
+        info.className = 'gallery-info';
+        
+        const title = document.createElement('h4');
+        title.className = isAdminMode ? 'admin-editable' : '';
+        if (isAdminMode) {
+          title.setAttribute('contenteditable', 'true');
+          title.onblur = () => { item.title = title.innerText; saveGalleryStateQuietly(); };
+        }
+        title.innerText = item.title;
+        info.appendChild(title);
+        
+        const caption = document.createElement('p');
+        caption.className = isAdminMode ? 'admin-editable' : '';
+        if (isAdminMode) {
+          caption.setAttribute('contenteditable', 'true');
+          caption.onblur = () => { item.caption = caption.innerText; saveGalleryStateQuietly(); };
+        }
+        caption.innerText = item.caption;
+        info.appendChild(caption);
+        
+        if (isAdminMode && (item.type === 'youtube' || item.type === 'video')) {
+          const urlEditLabel = document.createElement('small');
+          urlEditLabel.style.color = 'var(--text-light)';
+          urlEditLabel.style.fontWeight = '700';
+          urlEditLabel.style.marginTop = '8px';
+          urlEditLabel.style.fontSize = '0.75rem';
+          urlEditLabel.style.display = 'block';
+          urlEditLabel.innerText = item.type === 'youtube' ? 'URL Video YouTube:' : 'URL File Video:';
+          info.appendChild(urlEditLabel);
+          
+          const urlInput = document.createElement('input');
+          urlInput.type = 'text';
+          urlInput.className = 'form-input';
+          urlInput.style.padding = '6px 10px';
+          urlInput.style.fontSize = '0.8rem';
+          urlInput.style.marginTop = '2px';
+          urlInput.style.width = '100%';
+          urlInput.style.border = '1px solid var(--border-light)';
+          urlInput.style.borderRadius = '8px';
+          urlInput.value = item.mediaUrl;
+          urlInput.onchange = () => {
+            const newUrl = urlInput.value.trim();
+            if (newUrl) {
+              item.mediaUrl = newUrl;
+              saveGalleryStateQuietly();
+              if (item.type === 'youtube') {
+                const iframe = mediaContainer.querySelector('iframe');
+                if (iframe) iframe.src = getYoutubeEmbedUrl(newUrl);
+              } else if (item.type === 'video') {
+                const video = mediaContainer.querySelector('video');
+                if (video) video.src = newUrl;
+              }
+              showToast("✓ URL media berhasil diperbarui.");
+            }
+          };
+          info.appendChild(urlInput);
+        }
+        
+        card.appendChild(info);
+        grid.appendChild(card);
+      });
+    }
+
+    function saveGalleryStateQuietly() {
+      localStorage.setItem('karuna_gallery_items', JSON.stringify(galleryItems));
+    }
+
+    function deleteGalleryItem(id) {
+      if (confirm("Apakah Anda yakin ingin menghapus media ini dari galeri?")) {
+        galleryItems = galleryItems.filter(item => item.id !== id);
+        saveGalleryStateQuietly();
+        renderGalleryGrid();
+        showToast("✓ Media berhasil dihapus dari galeri.");
+      }
+    }
+
+    function toggleUploadInputType() {
+      const type = document.getElementById('uploadType').value;
+      const fileGroup = document.getElementById('uploadFileGroup');
+      const urlGroup = document.getElementById('uploadUrlGroup');
+      const fileInput = document.getElementById('uploadFile');
+      const urlInput = document.getElementById('uploadUrl');
+      const label = document.getElementById('uploadFileLabel');
+      
+      if (type === 'youtube') {
+        if (fileGroup) fileGroup.style.display = 'none';
+        if (urlGroup) urlGroup.style.display = 'block';
+        if (fileInput) fileInput.required = false;
+        if (urlInput) urlInput.required = true;
+      } else {
+        if (fileGroup) fileGroup.style.display = 'block';
+        if (urlGroup) urlGroup.style.display = 'none';
+        if (fileInput) fileInput.required = true;
+        if (urlInput) urlInput.required = false;
+        
+        if (type === 'video') {
+          if (fileInput) fileInput.accept = 'video/*';
+          if (label) label.innerText = 'Pilih File Video';
+        } else {
+          if (fileInput) fileInput.accept = 'image/*';
+          if (label) label.innerText = 'Pilih File Gambar';
+        }
+      }
+    }
+
+    function handleAdminUpload(event) {
+      event.preventDefault();
+      
+      const title = document.getElementById('uploadTitle').value.trim();
+      const type = document.getElementById('uploadType').value;
+      const caption = document.getElementById('uploadCaption').value.trim();
+      
+      if (type === 'youtube') {
+        const youtubeUrl = document.getElementById('uploadUrl').value.trim();
+        if (!youtubeUrl) {
+          alert("Masukkan URL YouTube terlebih dahulu!");
+          return;
+        }
+        
+        const newItem = {
+          id: Date.now(),
+          title: title,
+          type: type,
+          caption: caption,
+          mediaUrl: youtubeUrl,
+          date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
+        };
+        
+        galleryItems.unshift(newItem);
+        saveGalleryStateQuietly();
+        renderGalleryGrid();
+        
+        document.getElementById('adminUploadForm').reset();
+        toggleUploadInputType();
+        showToast("✓ Video YouTube berhasil ditambahkan ke Galeri!");
+        return;
+      }
+      
+      const fileInput = document.getElementById('uploadFile');
+      if (!fileInput.files || fileInput.files.length === 0) {
+        alert("Pilih file terlebih dahulu!");
+        return;
+      }
+      
+      const file = fileInput.files[0];
+      
+      // Robust local storage size limit check (Max 2.5 MB)
+      if (file.size > 2.5 * 1024 * 1024) {
+        alert("Ukuran file melebihi batas 2.5 MB. Harap kompres media atau gunakan resolusi yang lebih kecil agar dapat disimpan secara aman ke local storage browser.");
+        return;
+      }
+      
+      const reader = new FileReader();
+      showToast("⏳ Sedang memproses dan mengompresi media...");
+      
+      reader.onload = function(e) {
+        const mediaUrl = e.target.result;
+        
+        const newItem = {
+          id: Date.now(),
+          title: title,
+          type: type,
+          caption: caption,
+          mediaUrl: mediaUrl,
+          date: new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })
+        };
+        
+        galleryItems.unshift(newItem);
+        saveGalleryStateQuietly();
+        renderGalleryGrid();
+        
+        document.getElementById('adminUploadForm').reset();
+        toggleUploadInputType();
+        showToast("✓ Media baru berhasil ditambahkan ke Galeri!");
+      };
+      
+      reader.onerror = function() {
+        alert("Gagal membaca file!");
+      };
+      
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
